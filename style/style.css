@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter';
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+}
+
+header{
+    display: inline;
+ }
+
+.bg{
+position: absolute;
+width: auto;
+height: 1036px;
+left: -137px;
+top: 0px;
+flex: auto;
+z-index: -1;
+}
+
+ nav {
+    position: inline block;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    overflow: auto;
+ }
+
+ li{
+    font-family: 'Inter';
+    width: 100%;
+    height: auto;
+    color: #ffffff;
+ }
+
+ nav a{
+    float: left;
+ }
+
+ nav ul{
+    float: right;
+    margin-right: auto;
+ }
+
+ ul{
+    float: right;
+ }
+ 
+ nav li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 2px;
+  }
+
+  #visit{
+    color: #D8E72A;
+  }
+
+  .visit{
+    position: absolute;
+width: auto;
+height: 24px;
+left: 44px;
+top: 28px;
+
+/* semibold/20 */
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+display: flex;
+align-items: center;
+text-align: center;
+  }
+
+  .indonesia{
+    left: 92px;
+    color: #FFFFFF;
+  }
+
+.btn{
+    text-align: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px;
+    margin-right: 44px;
+    font-family: 'Inter';
+    text-align: center;
+
+    width: 92px;
+    height: 40px;
+    left: auto;
+    top: 20px;
+
+/* Blue/Blue 40 */
+
+    background: #7AAFFE;
+    border: 0pt;
+    border-radius: 16px;
+}
+
+.logintext{
+    width: auto;
+    height: auto;
+
+/* semibold/20 */
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+display: flex;
+align-items: center;
+text-align: center;
+
+/* White */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 1;
+}
