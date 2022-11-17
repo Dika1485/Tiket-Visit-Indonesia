@@ -1,0 +1,13 @@
+.navlink1 {
+}
+
+.belakang {
+  z-index: -3;
+}
+
+.depan {
+  z-index: 3;
+  /*left: 80px;*/
+  /*top: 555px;*/
+}
+
