@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wisata', function (Blueprint $table) {
-            $table->char('id')->primary();
+            $table->uuid('id')->primary();
             $table->string('nama');
             $table->integer('harga');
             $table->text('desc');

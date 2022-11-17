@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->char('id')->primary();
-            $table->char('id_wisata');
-            $table->char('id_akun');
+            $table->uuid('id')->primary();
+            $table->foreign('id_wisata')->references('id')->on('wisata');
+            $table->foreign('id_akun')->references('id')->on('wisata');
             $table->integer('jumlah');
             $table->string('status');
             $table->string('metode')->nullable();

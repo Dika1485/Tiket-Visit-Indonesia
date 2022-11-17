@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rating', function (Blueprint $table) {
-            $table->char('id_wisata');
-            $table->char('id_akun');
+            $table->foreign('id_wisata')->references('id')->on('wisata');
+            $table->foreign('id_akun')->references('id')->on('akun');
             $table->integer('rate');
         });
     }

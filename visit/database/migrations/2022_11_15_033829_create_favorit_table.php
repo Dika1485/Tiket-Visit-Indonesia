@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('favorit', function (Blueprint $table) {
-            $table->char('id_akun');
-            $table->char('id');
+            $table->foreign('id_akun')->references('id')->on('akun');
+            $table->string('id');
         });
     }
 

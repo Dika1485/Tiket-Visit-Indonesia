@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('media', function (Blueprint $table) {
-            $table->char('id');
+            $table->string('id');
             $table->string('namefile');
         });
     }
