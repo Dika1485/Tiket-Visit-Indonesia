@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rating', function (Blueprint $table) {
-            $table->string('id_wisata');
-            $table->string('id_akun');
-            $table->foreign('id_wisata')->references('id')->on('wisata');
-            $table->foreign('id_akun')->references('id')->on('akun');
-            $table->integer('rate');
+        Schema::create('list_wisatas', function (Blueprint $table) {
+            $table->uuid('id_wisata')->primary();
+            $table->string('akun');
+            $table->foreign('akun')->references('id')->on('akuns');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rating');
+        Schema::dropIfExists('list_wisatas');
     }
 };

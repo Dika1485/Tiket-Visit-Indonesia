@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('list_wisata', function (Blueprint $table) {
-            $table->uuid('id_wisata')->primary();
-            $table->string('akun');
-            $table->foreign('akun')->references('id')->on('akun');
+        Schema::create('produks', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('nama');
+            $table->text('desc');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list_wisata');
+        Schema::dropIfExists('produks');
     }
 };

@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('alamat', function (Blueprint $table) {
+        Schema::create('favorits', function (Blueprint $table) {
+            $table->string('id_akun');
+            $table->foreign('id_akun')->references('id')->on('akuns');
             $table->string('id');
-            $table->string('jalan')->nullable();
-            $table->string('desa')->nullable();
-            $table->string('kecamatan')->nullable();
-            $table->string('kota');
-            $table->string('provinsi');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alamat');
+        Schema::dropIfExists('favorits');
     }
 };

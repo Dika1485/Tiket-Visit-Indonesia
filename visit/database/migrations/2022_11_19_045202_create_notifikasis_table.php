@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notifikasi', function (Blueprint $table) {
+        Schema::create('notifikasis', function (Blueprint $table) {
             $table->string('id');
-            $table->foreign('id')->references('id')->on('akun');
+            $table->foreign('id')->references('id')->on('akuns');
             $table->date('tanggal');
             $table->string('judul');
             $table->text('notif');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifikasi');
+        Schema::dropIfExists('notifikasis');
     }
 };

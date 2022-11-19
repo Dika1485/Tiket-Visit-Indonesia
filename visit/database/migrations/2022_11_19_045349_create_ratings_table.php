@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('makanan', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nama');
-            $table->text('desc');
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->string('id_wisata');
+            $table->string('id_akun');
+            $table->foreign('id_wisata')->references('id')->on('wisatas');
+            $table->foreign('id_akun')->references('id')->on('akuns');
+            $table->integer('rate');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('makanan');
+        Schema::dropIfExists('ratings');
     }
 };

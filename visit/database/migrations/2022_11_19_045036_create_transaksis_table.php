@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaksi', function (Blueprint $table) {
+        Schema::create('transaksis', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('id_wisata');
             $table->string('id_akun');
-            $table->foreign('id_wisata')->references('id')->on('wisata');
-            $table->foreign('id_akun')->references('id')->on('wisata');
+            $table->foreign('id_wisata')->references('id')->on('wisatas');
+            $table->foreign('id_akun')->references('id')->on('wisatas');
             $table->integer('jumlah');
             $table->string('status');
             $table->string('metode')->nullable();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksi');
+        Schema::dropIfExists('transaksis');
     }
 };
