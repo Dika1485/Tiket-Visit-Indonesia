@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('tanggal_lahir');
             $table->boolean('admin');
+            $table->timestamps();
         });
     }
 

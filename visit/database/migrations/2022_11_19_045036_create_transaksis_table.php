@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('status');
             $table->string('metode')->nullable();
             $table->date('schedule')->nullable();
+            $table->timestamps();
         });
     }
 

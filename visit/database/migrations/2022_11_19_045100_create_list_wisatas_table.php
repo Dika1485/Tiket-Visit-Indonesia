@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('id_wisata')->primary();
             $table->string('akun');
             $table->foreign('akun')->references('id')->on('akuns');
+            $table->timestamps();
         });
     }
 

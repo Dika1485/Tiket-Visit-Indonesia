@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id_akun');
             $table->foreign('id_akun')->references('id')->on('akuns');
             $table->string('id');
+            $table->timestamps();
         });
     }
 

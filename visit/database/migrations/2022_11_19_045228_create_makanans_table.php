@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nama');
             $table->text('desc');
+            $table->timestamps();
         });
     }
 

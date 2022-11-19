@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('id_wisata')->references('id')->on('wisatas');
             $table->foreign('id_akun')->references('id')->on('akuns');
             $table->integer('rate');
+            $table->timestamps();
         });
     }
 

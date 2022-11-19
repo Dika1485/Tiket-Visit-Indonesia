@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->string('judul');
             $table->text('notif');
+            $table->timestamps();
         });
     }
 

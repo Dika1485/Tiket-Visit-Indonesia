@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota');
             $table->string('provinsi');
+            $table->timestamps();
         });
     }
 

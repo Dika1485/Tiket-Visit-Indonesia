@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->integer('harga');
             $table->text('desc');
+            $table->timestamps();
         });
     }
 
