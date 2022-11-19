@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notifikasi', function (Blueprint $table) {
+            $table->string('id');
             $table->foreign('id')->references('id')->on('akun');
             $table->date('tanggal');
             $table->string('judul');

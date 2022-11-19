@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('list_wisata', function (Blueprint $table) {
             $table->uuid('id_wisata')->primary();
+            $table->string('akun');
             $table->foreign('akun')->references('id')->on('akun');
         });
     }

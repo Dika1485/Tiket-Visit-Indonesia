@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('id_wisata');
+            $table->string('id_akun');
             $table->foreign('id_wisata')->references('id')->on('wisata');
             $table->foreign('id_akun')->references('id')->on('wisata');
             $table->integer('jumlah');
