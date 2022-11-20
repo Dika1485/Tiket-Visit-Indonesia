@@ -17,8 +17,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('id_wisata');
             $table->string('id_akun');
-            $table->foreign('id_wisata')->references('id')->on('wisatas');
-            $table->foreign('id_akun')->references('id')->on('wisatas');
             $table->integer('jumlah');
             $table->string('status');
             $table->string('metode')->nullable();

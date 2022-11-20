@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+
+use Illuminate\Support\Str;
+use Symfony\Component\Uid\Uuid;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +21,7 @@ class WisataFactory extends Factory
     {
         return [
             //
+
             'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'harga' => $this->faker->numberBetween(10000, 50000),

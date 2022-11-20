@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('list_wisatas', function (Blueprint $table) {
-            $table->uuid('id_wisata')->primary();
+            $table->string('id_wisata')->primary();
             $table->string('akun');
-            $table->foreign('akun')->references('id')->on('akuns');
             $table->timestamps();
         });
     }

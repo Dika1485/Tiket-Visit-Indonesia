@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Wisata;
+use App\Models\Akun;
 use App\Models\User;
-use Illuminate\Database\Seeder;
+use App\Models\Wisata;
+use App\Models\Transaksi;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,5 +27,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Wisata::factory(10)->create();
+        Akun::factory(10)->create();
+        Transaksi::factory(1)->create();
     }
 }

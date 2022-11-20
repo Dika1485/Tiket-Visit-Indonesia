@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Akun;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::get('/a', function () {
     return view('home');
+});
+Route::get('/select', function () {
+    $array = DB::select('select id from akuns');
+    // $array = Akun::all();
+    // $a = $array;
+    foreach ($array as $ar) {
+        echo "$ar->id";
+    }
 });

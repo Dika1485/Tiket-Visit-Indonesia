@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->string('id_wisata');
             $table->string('id_akun');
-            $table->foreign('id_wisata')->references('id')->on('wisatas');
-            $table->foreign('id_akun')->references('id')->on('akuns');
             $table->integer('rate');
             $table->timestamps();
         });

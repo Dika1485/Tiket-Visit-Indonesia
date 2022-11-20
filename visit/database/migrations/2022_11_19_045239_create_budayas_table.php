@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('budayas', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->string('id');
             $table->string('nama');
             $table->text('desc');
             $table->timestamps();
