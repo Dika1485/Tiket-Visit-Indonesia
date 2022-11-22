@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('nama');
             $table->integer('harga');
             $table->text('desc');
+            $table->string('jalan')->nullable();
+            $table->string('desa')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kota');
+            $table->string('provinsi');
             $table->timestamps();
         });
     }

@@ -25,6 +25,12 @@ class WisataFactory extends Factory
             'nama' => $this->faker->citySuffix(),
             'harga' => $this->faker->numberBetween(10000, 50000),
             'desc' => $this->faker->paragraph(),
+            'jalan' => $this->faker->streetAddress(),
+            'desa' => $this->faker->citySuffix(),
+            'kecamatan' => $this->faker->cityPrefix(),
+            'kota' => $this->faker->city(),
+            'provinsi' => $this->faker->state()
+
         ];
     }
 }

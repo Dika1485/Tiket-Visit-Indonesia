@@ -23,7 +23,12 @@ class AkunFactory extends Factory
             'username' => $this->faker->firstName(),
             'password' => $this->faker->domainWord(),
             'tanggal_lahir' => $this->faker->date(),
-            'admin' => $this->faker->numberBetween(0, 1)
+            'admin' => $this->faker->numberBetween(0, 1),
+            'jalan' => $this->faker->streetAddress(),
+            'desa' => $this->faker->citySuffix(),
+            'kecamatan' => $this->faker->cityPrefix(),
+            'kota' => $this->faker->city(),
+            'provinsi' => $this->faker->state()
         ];
     }
 }

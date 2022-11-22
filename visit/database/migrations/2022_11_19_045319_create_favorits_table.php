@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('favorits', function (Blueprint $table) {
             $table->id();
-            $table->string('idakun');
+            $table->foreignId('akun_id')->constrained()->onDelete('cascade');
             $table->string('idobjek');
             $table->timestamps();
         });

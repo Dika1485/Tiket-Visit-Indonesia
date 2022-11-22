@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('password');
             $table->date('tanggal_lahir');
             $table->boolean('admin');
+            $table->string('jalan')->nullable();
+            $table->string('desa')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kota');
+            $table->string('provinsi');
             $table->timestamps();
         });
     }
