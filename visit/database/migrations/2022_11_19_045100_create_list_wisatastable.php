@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('list_wisatas', function (Blueprint $table) {
-            $table->string('id_wisata')->primary();
+        Schema::create('listwisatas', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
             $table->string('akun');
             $table->timestamps();
         });

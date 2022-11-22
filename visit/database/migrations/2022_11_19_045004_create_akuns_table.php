@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('akuns', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('akun')->unique();
             $table->string('username');
             $table->string('password');

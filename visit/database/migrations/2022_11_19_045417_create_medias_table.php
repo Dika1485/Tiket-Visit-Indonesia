@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('medias', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
             $table->string('namefile');
             $table->timestamps();
         });

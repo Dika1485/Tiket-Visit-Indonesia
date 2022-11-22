@@ -29,23 +29,16 @@ class TransaksiFactory extends Factory
         // foreach ($a as $a1) {
         //     $
         // }
-        foreach ($id_w as $w) {
-            foreach ($id_a as $a) {
-                return [
 
+        return [
 
+            'wisata_id' => $this->faker->numberBetween(1, 10),
+            'akun_id' => $this->faker->numberBetween(1, 10),
+            'jumlah' => $this->faker->numberBetween(1, 5),
+            'status' => $this->faker->randomElement(["pending", "setlement", "canceled"]),
+            'metode' => $this->faker->randomElement(["Bank"], ["E-Wallet"], ["Pulsa"]),
+            'schedule' => $this->faker->date()
 
-                    'id' => $this->faker->uuid(),
-
-                    'id_wisata' => $this->faker->randomElement($w),
-                    'id_akun' => $this->faker->randomElement($a),
-                    'jumlah' => $this->faker->numberBetween(1, 5),
-                    'status' => $this->faker->randomElement(["pending", "setlement", "canceled"]),
-                    'metode' => $this->faker->randomElement(["Bank"], ["E-Wallet"], ["Pulsa"]),
-                    'schedule' => $this->faker->date()
-
-                ];
-            }
-        }
+        ];
     }
 }

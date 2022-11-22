@@ -18,10 +18,9 @@ class AkunFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->uuid(),
+
             'akun' => $this->faker->email(),
             'username' => $this->faker->firstName(),
-            'password' => Hash::make($this->faker->password(2, 4)),
             'password' => $this->faker->domainWord(),
             'tanggal_lahir' => $this->faker->date(),
             'admin' => $this->faker->numberBetween(0, 1)

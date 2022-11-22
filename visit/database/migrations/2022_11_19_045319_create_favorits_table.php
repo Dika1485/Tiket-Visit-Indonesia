@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('favorits', function (Blueprint $table) {
-            $table->string('id_akun');
-            $table->string('id');
+            $table->id();
+            $table->string('idakun');
+            $table->string('idobjek');
             $table->timestamps();
         });
     }

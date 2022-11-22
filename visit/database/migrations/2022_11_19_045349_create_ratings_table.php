@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->string('id_wisata');
+            $table->id();
             $table->string('id_akun');
             $table->integer('rate');
             $table->timestamps();

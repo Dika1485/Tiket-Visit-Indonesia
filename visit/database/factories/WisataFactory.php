@@ -22,7 +22,6 @@ class WisataFactory extends Factory
         return [
             //
 
-            'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'harga' => $this->faker->numberBetween(10000, 50000),
             'desc' => $this->faker->paragraph(),

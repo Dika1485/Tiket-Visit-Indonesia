@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notifikasis', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->foreignId('akun_id')->constrained()->onDelete('cascade');
             $table->date('tanggal');
             $table->string('judul');
             $table->text('notif');

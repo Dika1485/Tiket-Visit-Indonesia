@@ -28,6 +28,6 @@ class DatabaseSeeder extends Seeder
 
         Wisata::factory(10)->create();
         Akun::factory(10)->create();
-        Transaksi::factory(1)->create();
+        Transaksi::factory(10)->create();
     }
 }
