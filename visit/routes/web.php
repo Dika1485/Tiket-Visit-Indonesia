@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WisataController;
 use App\Models\Akun;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,4 @@ Route::get('/select', function () {
         echo "$ar->id";
     }
 });
+Route::get('/wisata', [WisataController::class, 'view']);
