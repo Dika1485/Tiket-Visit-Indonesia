@@ -17,7 +17,10 @@ class NotifikasiFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'akun_id' => $this->faker->numberBetween(1, 10),
+            'tanggal' => $this->faker->dateTime(),
+            'judul' => $this->faker->sentence(),
+            'notif' => $this->faker->paragraph()
         ];
     }
 }

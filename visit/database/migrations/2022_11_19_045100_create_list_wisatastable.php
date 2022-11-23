@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('listwisatas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
-            $table->string('akun');
+            $table->foreignId('akun_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

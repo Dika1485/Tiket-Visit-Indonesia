@@ -17,6 +17,7 @@ class BudayaFactory extends Factory
     public function definition()
     {
         return [
+            'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'desc' => $this->faker->paragraph(),
         ];
