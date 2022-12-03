@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Budaya>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Favorit>
  */
-class BudayaFactory extends Factory
+class FavoritwisataFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,8 @@ class BudayaFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->uuid(),
-            'nama' => $this->faker->citySuffix(),
-            'desc' => $this->faker->paragraph(),
+            'akun_id' => $this->faker->numberBetween(1, 10),
+            'wisata_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

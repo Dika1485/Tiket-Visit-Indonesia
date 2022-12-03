@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('media', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('namefile');
+        Schema::create('makanans', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->text('desc');
+            $table->integer('harga');
+            $table->foreignId("akun_id")->constrained()->onDelete('cascade');
+            $table->text('media');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medias');
+        Schema::dropIfExists('makanans');
     }
 };

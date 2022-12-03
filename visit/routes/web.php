@@ -31,3 +31,6 @@ Route::get('/select', function () {
     }
 });
 Route::get('/wisata', [WisataController::class, 'view']);
+Route::get('/makanan', [MakananController::class, 'view']);
+Route::get('/produk', [ProdukController::class, 'view']);
+Route::get('/budaya', [BudayaController::class, 'view']);

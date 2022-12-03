@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('favorits', function (Blueprint $table) {
+        Schema::create('ratingproduks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('akun_id')->constrained()->onDelete('cascade');
-            $table->string('idobjek');
+            $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
+            $table->integer('rate');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favorits');
+        Schema::dropIfExists('ratings');
     }
 };

@@ -20,6 +20,9 @@ class ProdukFactory extends Factory
             'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'desc' => $this->faker->paragraph(),
+            'harga' => $this->faker->numberBetween(50000, 100000),
+            'akun_id' => $this->faker->numberBetween(1, 10),
+            'media' => $this->faker->mimeType()
         ];
     }
 }

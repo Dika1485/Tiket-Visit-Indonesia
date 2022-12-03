@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Favorit>
  */
-class FavoritFactory extends Factory
+class FavoritmakananFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,8 @@ class FavoritFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'akun_id' => $this->faker->numberBetween(1, 10),
+            'makanan_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

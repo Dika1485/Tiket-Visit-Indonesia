@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('ratingwisatas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('akun_id')->constrained()->onDelete('cascade');
             $table->foreignId('wisata_id')->constrained()->onDelete('cascade');

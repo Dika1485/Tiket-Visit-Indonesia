@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaksis', function (Blueprint $table) {
+        Schema::create('ratingwmakanans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
             $table->foreignId('akun_id')->constrained()->onDelete('cascade');
-            $table->integer('jumlah');
-            $table->string('status');
-            $table->string('metode')->nullable();
-            $table->date('schedule')->nullable();
+            $table->foreignId('makanans_id')->constrained()->onDelete('cascade');
+            $table->integer('rate');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksis');
+        Schema::dropIfExists('ratings');
     }
 };

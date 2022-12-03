@@ -29,7 +29,8 @@ class WisataFactory extends Factory
             'desa' => $this->faker->citySuffix(),
             'kecamatan' => $this->faker->cityPrefix(),
             'kota' => $this->faker->city(),
-            'provinsi' => $this->faker->state()
+            'provinsi' => $this->faker->state(),
+            'akun_id' => $this->faker->numberBetween(1, 10)
 
         ];
     }

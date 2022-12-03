@@ -7,13 +7,17 @@ use App\Models\Akun;
 use App\Models\Budaya;
 use App\Models\User;
 use App\Models\Wisata;
-use App\Models\Transaksi;
+use App\Models\Transaksiwisata;
+use App\Models\Transaksiproduk;
+use App\Models\Transaksimakanan;
 use App\Models\Listwisata;
 use App\Models\Makanan;
 use App\Models\Media;
 use App\Models\Notifikasi;
 use App\Models\Produk;
-use App\Models\Rating;
+use App\Models\Ratingmakanan;
+use App\Models\Ratingproduk;
+use App\Models\Ratingwisata;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -33,9 +37,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Wisata::factory(10)->create();
         Akun::factory(10)->create();
-        Transaksi::factory(10)->create();
+        Wisata::factory(10)->create();
+        Produk::factory(10)->create();
+        Makanan::factory(10)->create();
+
+        Transaksiwisata::factory(10)->create();
         Listwisata::factory(10)->create();
         Rating::factory(10)->create();
         Notifikasi::factory(10)->create();

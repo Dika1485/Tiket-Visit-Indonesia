@@ -20,6 +20,9 @@ class MakananFactory extends Factory
             'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'desc' => $this->faker->paragraph(),
+            'harga' => $this->faker->numberBetween(5000, 20000),
+            'akun_id' => $this->faker->numberBetween(1, 10),
+            'media' => $this->faker->mimeType()
         ];
     }
 }

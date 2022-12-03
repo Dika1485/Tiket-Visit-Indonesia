@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rating>
  */
-class RatingFactory extends Factory
+class RatingmakananFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class RatingFactory extends Factory
     public function definition()
     {
         return [
-            'wisata_id' => $this->faker->numberBetween(1, 10),
+            'makanan_id' => $this->faker->numberBetween(1, 10),
             'akun_id' => $this->faker->numberBetween(1, 10),
             'rate' => $this->faker->numberBetween(1, 5)
         ];
