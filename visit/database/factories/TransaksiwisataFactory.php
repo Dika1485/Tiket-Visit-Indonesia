@@ -35,7 +35,6 @@ class TransaksiwisataFactory extends Factory
 
             'wisata_id' => $this->faker->numberBetween(1, 10),
             'akun_id' => $this->faker->numberBetween(1, 10),
-            'akun_id' => $this->faker->numberBetween(1, 10),
             'jumlah' => $this->faker->numberBetween(1, 5),
             'status' => $this->faker->randomElement(["pending", "setlement", "canceled"]),
             'metode' => $this->faker->randomElement(["Bank"], ["E-Wallet"], ["Pulsa"]),

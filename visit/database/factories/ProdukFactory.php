@@ -17,7 +17,7 @@ class ProdukFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->uuid(),
+            // 'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'desc' => $this->faker->paragraph(),
             'harga' => $this->faker->numberBetween(50000, 100000),

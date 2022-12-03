@@ -17,7 +17,7 @@ class MakananFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->uuid(),
+            // 'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
             'desc' => $this->faker->paragraph(),
             'harga' => $this->faker->numberBetween(5000, 20000),

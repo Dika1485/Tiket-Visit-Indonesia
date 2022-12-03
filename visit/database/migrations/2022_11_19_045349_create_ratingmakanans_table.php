@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ratingwmakanans', function (Blueprint $table) {
+        Schema::create('ratingmakanans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('akun_id')->constrained()->onDelete('cascade');
-            $table->foreignId('makanans_id')->constrained()->onDelete('cascade');
+            $table->foreignId('makanan_id')->constrained()->onDelete('cascade');
             $table->integer('rate');
             $table->timestamps();
         });

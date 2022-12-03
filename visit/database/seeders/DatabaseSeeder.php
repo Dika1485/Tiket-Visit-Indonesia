@@ -4,22 +4,21 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Akun;
-use App\Models\Budaya;
 use App\Models\User;
-use App\Models\Wisata;
-use App\Models\Transaksiwisata;
-use App\Models\Transaksiproduk;
-use App\Models\Transaksimakanan;
-use App\Models\Listwisata;
-use App\Models\Makanan;
 use App\Models\Media;
-use App\Models\Notifikasi;
 use App\Models\Produk;
-use App\Models\Ratingmakanan;
+use App\Models\Wisata;
+use App\Models\Makanan;
+use App\Models\Notifikasi;
+use Faker\Factory as Faker;
 use App\Models\Ratingproduk;
 use App\Models\Ratingwisata;
-use Faker\Factory as Faker;
+use App\Models\Ratingmakanan;
+use App\Models\Transaksiproduk;
+use App\Models\Transaksiwisata;
 use Illuminate\Database\Seeder;
+use App\Models\Transaksimakanan;
+use Database\Factories\RatingwisataFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -43,12 +42,13 @@ class DatabaseSeeder extends Seeder
         Makanan::factory(10)->create();
 
         Transaksiwisata::factory(10)->create();
-        Listwisata::factory(10)->create();
-        Rating::factory(10)->create();
+        Transaksimakanan::factory(10)->create();
+        Transaksiproduk::factory(10)->create();
+        Ratingwisata::factory(10)->create();
+        Ratingmakanan::factory(10)->create();
+        Ratingproduk::factory(10)->create();
         Notifikasi::factory(10)->create();
-        Budaya::factory(10)->create();
         Produk::factory(10)->create();
         Makanan::factory(10)->create();
-        Media::factory(10)->create();
     }
 }

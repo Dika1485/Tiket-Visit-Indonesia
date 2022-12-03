@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ratingproduks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('akun_id')->constrained()->onDelete('cascade');
-            $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
+            $table->foreignId('produk_id')->constrained()->onDelete('cascade');
             $table->integer('rate');
             $table->timestamps();
         });
