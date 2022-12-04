@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Favorit>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Media>
  */
-class FavoritmakananFactory extends Factory
+class MediaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class FavoritmakananFactory extends Factory
     public function definition()
     {
         return [
-            'akun_id' => $this->faker->numberBetween(1, 10),
-            'makanan_id' => $this->faker->numberBetween(1, 10)
+            'menu_id' => $this->faker->numberBetween(1, 30),
+            'namefile' => $this->faker->mimeType()
         ];
     }
 }

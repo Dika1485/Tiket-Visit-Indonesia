@@ -2,16 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Akun;
-use App\Models\Wisata;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Transaksi>
  */
-class TransaksiprodukFactory extends Factory
+class TransaksimakananFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -33,12 +30,12 @@ class TransaksiprodukFactory extends Factory
         return [
 
 
-            'produk_id' => $this->faker->numberBetween(1, 10),
+            'menu_id' => $this->faker->numberBetween(1, 30),
             'akun_id' => $this->faker->numberBetween(1, 10),
             'jumlah' => $this->faker->numberBetween(1, 5),
             'status' => $this->faker->randomElement(["pending", "setlement", "canceled"]),
             'metode' => $this->faker->randomElement(["Bank"], ["E-Wallet"], ["Pulsa"]),
-
+            'schedule' => $this->faker->dateTimeBetween("+1 week", "+1 month")
 
         ];
     }

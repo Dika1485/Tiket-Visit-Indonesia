@@ -2,15 +2,12 @@
 
 namespace Database\Factories;
 
-
-use Illuminate\Support\Str;
-use Symfony\Component\Uid\Uuid;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Wisata>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Makanan>
  */
-class WisataFactory extends Factory
+class MakananFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,17 +17,16 @@ class WisataFactory extends Factory
     public function definition()
     {
         return [
-            //
-
+            // 'id' => $this->faker->uuid(),
             'nama' => $this->faker->citySuffix(),
-            'harga' => $this->faker->numberBetween(10000, 50000),
+            'kategori_id' => $this->faker->numberBetween(1, 4),
             'desc' => $this->faker->paragraph(),
+            'harga' => $this->faker->randomElement(["5000", "10000", "15000", "20000"]),
             'jalan' => $this->faker->streetAddress(),
             'desa' => $this->faker->citySuffix(),
             'kecamatan' => $this->faker->cityPrefix(),
             'kota' => $this->faker->city(),
-            'provinsi' => $this->faker->state(),
-            'akun_id' => $this->faker->numberBetween(1, 10)
+            'provinsi' => $this->faker->state()
 
         ];
     }

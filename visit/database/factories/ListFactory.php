@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rating>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class RatingprodukFactory extends Factory
+class ListFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,8 @@ class RatingprodukFactory extends Factory
     public function definition()
     {
         return [
-            'produk_id' => $this->faker->numberBetween(1, 10),
+            'menu_id' => $this->faker->numberBetween(1, 30),
             'akun_id' => $this->faker->numberBetween(1, 10),
-            'rate' => $this->faker->numberBetween(1, 5)
         ];
     }
 }
