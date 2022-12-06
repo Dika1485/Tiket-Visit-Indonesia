@@ -1,0 +1,38 @@
+Register Requierment:
+- Bussines Name
+- Nama Lengkap
+- Bussines Email, mau buat sendiri atau dibuatkan? jika buat sendiri maka tolong beritahukan email serta nomor hp yang dapat dihubungi untuk konfirmasi email.
+- Nomor WA untuk usaha
+- Password untuk akun pembayaran
+
+Pilih bank transfer dan atau gopay atau QR QRIS
+- Siapkan foto / scan ktp yang jelas dan dapat dibaca komputer
+- Nomor Induk Kependudukan
+- Nama sesuai ktp
+
+Informasi bisnis
+- Yes/No bisnis menggunakan web developer
+- Kode Pos
+- Alamat
+- Kategori bisnis
+- Email pengelolaan bisnis
+- Bisnis have application/website? jika punya masukkan link website atau aplikasi
+- Jika punya website dalam pengembangan maka berikan link website pengembangan
+- Punya sosmed atau toko di marketplace? kalau punya apa linknya? Kalau tidak harus buat dulu, minimal sosmed seperti instagram
+- Jelaskan rincian bisnis dengan lengkap
+- Bisnis secara resmi
+- Nama bank, pemilik wajib sama seperti pemilik ktp yang didaftarkan
+- Nomor rekening
+--------------------------------------------------------------------------------------------------------
+
+Dengan mengaktivasi Sistem Payment Gateway Midtrans (“Payment Gateway”) ini maka Anda memahami bahwa kanal pembayaran dan biaya layanan Payment Gateway (diluar pajak) yang berlaku untuk setiap transaksi berhasil adalah:
+
+[  Biaya Bank Transfer (VA BNI, VA BRI, VA Permata, Mandiri Bill) Rp4.000  |
+[  Biaya GoPay 2% dari nilai transaksi; dan                                |
+[  Biaya QRIS 0,7% dari nilai transaksi.                                   |
+
+Lebih lanjut, Anda setuju bahwa setiap informasi yang Anda sampaikan sehubungan dengan aktivasi ini dapat Kami kumpulkan, simpan dan gunakan sesuai dengan Kebijakan Privasi yang telah Anda baca dan pahami.
+
+Dengan mengisi check box di bawah ini dan dengan klik tombol Ajukan maka dengan ini Anda telah membaca, memahami dan menyetujui keseluruhan Syarat dan Ketentuan Pengaktifan Sistem Payment Gateway Midtrans (“Syarat dan Ketentuan Payment Gateway”) dan dengan ini menerima setiap hak, kewajiban, dan konsekuensi di dalamnya.
+
+Saya memahami dan menyetujui Syarat dan Ketentuan Payment Gateway

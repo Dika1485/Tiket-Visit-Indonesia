@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Akun::factory(10)->create();
         Menu::factory(30)->create();
         Transaksi::factory(10)->create();
         Daftar::factory(10)->create();
