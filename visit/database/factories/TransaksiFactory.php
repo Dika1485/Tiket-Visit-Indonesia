@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Transaksi>
  */
-class TransaksimakananFactory extends Factory
+class TransaksiFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class TransaksimakananFactory extends Factory
     public function definition()
     {
         // $array = DB::select('select id from akuns');
-        $id_w = DB::select('select id from wisatas');
+        $id_w = DB::select('select id from menus');
         // $id_w->toArray();
         $id_a = DB::select('select id from akuns');
         // $id_a->toArray();

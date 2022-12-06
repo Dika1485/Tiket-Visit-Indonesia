@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAkunTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateAkunTable extends Migration
      */
     public function up()
     {
-        Schema::create('akun', function (Blueprint $table) {
-            $table->char('id')->primary();
+        Schema::create('akuns', function (Blueprint $table) {
+            $table->id();
             $table->string('akun')->unique();
             $table->string('username')->unique();
             $table->string('password');
@@ -26,6 +26,7 @@ class CreateAkunTable extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota');
             $table->string('provinsi');
+            $table->timestamps();
         });
     }
 
@@ -36,6 +37,6 @@ class CreateAkunTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('akun');
+        Schema::dropIfExists('akuns');
     }
-}
+};

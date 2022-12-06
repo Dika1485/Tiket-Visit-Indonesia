@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWhochatTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateWhochatTable extends Migration
      */
     public function up()
     {
-        Schema::create('whochat', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_penjual');
-            $table->integer('id_pembeli');
+        Schema::create('whochats', function (Blueprint $table) {
+            $table->id();
+            $table->integer('penjual_id');
+            $table->integer('pembeli_id');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateWhochatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('whochat');
+        Schema::dropIfExists('whochats');
     }
-}
+};

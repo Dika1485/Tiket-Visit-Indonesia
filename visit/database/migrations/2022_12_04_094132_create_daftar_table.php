@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateListTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateListTable extends Migration
      */
     public function up()
     {
-        Schema::create('list', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('id_menu');
-            $table->integer('id_akun');
+        Schema::create('daftars', function (Blueprint $table) {
+            $table->id();
+            $table->integer('menu_id');
+            $table->integer('akun_id');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list');
+        Schema::dropIfExists('daftars');
     }
-}
+};
