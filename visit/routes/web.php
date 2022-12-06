@@ -34,3 +34,11 @@ Route::get('/wisata', [WisataController::class, 'view']);
 Route::get('/makanan', [MakananController::class, 'view']);
 Route::get('/produk', [ProdukController::class, 'view']);
 Route::get('/budaya', [BudayaController::class, 'view']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
