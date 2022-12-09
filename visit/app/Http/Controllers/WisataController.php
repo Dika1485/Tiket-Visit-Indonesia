@@ -8,9 +8,8 @@ use Illuminate\Routing\Controller;
 
 class WisataController extends Controller
 {
-    public function view()
+    public function index()
     {
-        $wisatas  = Wisata::get();
-        return view('wisata', ['wisatas' => $wisatas]);
+        return view('katalog-wisata');
     }
 }
