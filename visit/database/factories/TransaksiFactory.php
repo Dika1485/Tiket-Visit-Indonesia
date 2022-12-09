@@ -29,7 +29,7 @@ class TransaksiFactory extends Factory
 
         return [
 
-
+            'kode' => $this->faker->unique()->regexify('[A-Z]{5}[0-4]{3}'),
             'menu_id' => $this->faker->numberBetween(1, 30),
             'akun_id' => $this->faker->numberBetween(1, 10),
             'jumlah' => $this->faker->numberBetween(1, 5),

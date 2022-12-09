@@ -57,7 +57,7 @@
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a href="index" class="active">Beranda</a></li>
-                        <li><a href="katalog">Katalog</a></li>
+                        <li><a href="katalog-wisata">Katalog</a></li>
                         <li><a href="bantuan">Bantuan</a></li>
                         <li><a class="get-a-quote text-medium text-bold" href="" data-bs-target="#login"
                                 data-bs-toggle="modal">Login</a></li>
@@ -85,7 +85,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">{{ Auth::user()->username }}</a>
+                                aria-expanded="false">{{ Auth::user()->email }}</a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-black" href="notifikasi">Notifikasi</a>
                                 <a class="dropdown-item text-black" href="pesanan">Pesanan Saya</a>
@@ -132,10 +132,10 @@
 
                         <div class="row mb-3">
                             <label for="email"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email"
+                                <input id="email" type="text"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                     value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -505,16 +505,19 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="cards-wrapper">
-                            <div class="card">
-                                <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                            @forelse ($wisatas as $wisata)
+                                <div class="card">
+                                    <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $wisata->nama }}</h5>
+                                        <p class="card-text">{{ Str::limit($wisata->desc, 100) }}</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card d-none d-md-block">
+                            @empty
+                            @endforelse
+
+                            {{-- <div class="card d-none d-md-block">
                                 <img src="img/curug.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
@@ -531,21 +534,23 @@
                                         the bulk of the card's content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="cards-wrapper">
-                            <div class="card">
-                                <img src="img/knalpot.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                            @forelse ($makanans as $makanan)
+                                <div class="card">
+                                    <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $makanan->nama }}</h5>
+                                        <p class="card-text">{{ Str::limit($makanan->desc, 100) }}</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card d-none d-md-block">
+                            @empty
+                            @endforelse
+                            {{-- <div class="card d-none d-md-block">
                                 <img src="img/sate-blater.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
@@ -562,21 +567,23 @@
                                         the bulk of the card's content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="cards-wrapper">
-                            <div class="card">
-                                <img src="img/knalpot.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                            @forelse ($produks as $produk)
+                                <div class="card">
+                                    <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $produk->nama }}</h5>
+                                        <p class="card-text">{{ Str::limit($produk->desc, 100) }}</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card d-none d-md-block">
+                            @empty
+                            @endforelse
+                            {{-- <div class="card d-none d-md-block">
                                 <img src="img/curug.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
@@ -593,7 +600,7 @@
                                         the bulk of the card's content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

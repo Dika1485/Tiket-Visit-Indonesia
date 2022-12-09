@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         Daftar::factory(10)->create();
         Rating::factory(10)->create();
         Notifikasi::factory(10)->create();
-        Kategori::factory(10)->create();
+        Kategori::factory(4)->create();
         Media::factory(10)->create();
         Favorit::factory(10)->create();
     }
