@@ -503,335 +503,200 @@
                         ">
                 </div>
             </div>
-
+            {{-- Box katalog --}}
             <div class="col d-flex">
                 <div class="container px-6 text-center">
                     <div class="row gx-5 mb-3">
-                        <div class="col">
-                            <div class="box-katalog"
-                                style="
-                                        background-image: url('img/curug.jpg');
-                                        background-size: cover;
-                                    ">
-                                <div class="row">
-                                    <div class="col" align="left">
-                                        <i class="bi bi-star-fill" style="color: yellow"><span
-                                                style="
-                                                        color: white;
-                                                        font-weight: bold;
-                                                    ">4.5/5</span></i>
+                        {{-- persatu awal --}}
+                        @forelse ($makanans as $makanan)
+                            <div class="col ">
+                                <div class="box-katalog"
+                                    style="background-image: url('img/curug.jpg'); background-size: cover;">
+                                    <div class="row">
+                                        <div class="col" align="left">
+                                            <i class="bi bi-star-fill"style="color: yellow;"><span
+                                                    style="color: white; font-weight: bold;">4.5/5</span></i>
+                                        </div>
+                                        <div class="col" align="right">
+                                            <i class="bi bi-heart fa-lg" style="color: white;"></i>
+                                        </div>
                                     </div>
-                                    <div class="col" align="right">
-                                        <i class="bi bi-heart fa-lg" style="color: white"></i>
+                                    <div class="row" style="margin-top: 88px;">
+                                        <div class="col" style="margin: auto;" align="left">
+                                            <h4 style="color: white;">{{ $makanan->nama }}</h4>
+                                            <h5 style="color: white;">{{ $makanan->harga }}</h5>
+                                        </div>
+                                        <div class="col" style="margin: auto;" align="right">
+                                            <button class="btn btn-primary beli" data-bs-toggle="modal"
+                                                data-bs-target="#beli{{ $makanan->id }}">Beli</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row" style="margin-top: 88px">
-                                    <div class="col" style="margin: auto" align="left">
-                                        <h4 style="color: white">
-                                            Nama Produk
-                                        </h4>
-                                        <h5 style="color: white">
-                                            Harga / tiket
-                                        </h5>
-                                    </div>
-                                    <div class="col" style="margin: auto" align="right">
-                                        <button class="btn btn-primary beli" data-bs-toggle="modal"
-                                            data-bs-target="#beli">
-                                            Beli
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- Modal Beli -->
-                                <div class="modal" id="beli" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title"
-                                                    style="
-                                                            margin-left: 16px;
-                                                        ">
-                                                    Nama Destinasi
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body"
-                                                style="
-                                                        padding: 12px;
-                                                        margin-bottom: 20px;
-                                                    ">
-                                                <div class="row"
-                                                    style="
-                                                            height: 100%;
-                                                            margin-top: 20px;
-                                                        ">
-                                                    <div class="col col-lg-5 align-middle" style="margin: auto">
-                                                        <!-- Carousel wrapper -->
-                                                        <div id="carouselBasicExample"
-                                                            class="carousel slide carousel-fade"
-                                                            data-bs-ride="carousel">
-                                                            <!-- Indicators -->
-                                                            <div class="carousel-indicators">
-                                                                <button type="button"
+                                    <!-- Modal Beli -->
+                                    <div class="modal" id="beli{{ $makanan->id }}" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content ">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" style="margin-left: 16px;">
+                                                        {{ $makanan->nama }}
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" style="padding: 12px;margin-bottom: 20px;">
+                                                    <div class="row" style="height:100%;margin-top: 20px;">
+                                                        <div class="col col-lg-5 align-middle" style="margin: auto;">
+                                                            <!-- Carousel wrapper -->
+                                                            <div id="carouselBasicExample"
+                                                                class="carousel slide carousel-fade"
+                                                                data-bs-ride="carousel">
+                                                                <!-- Indicators -->
+                                                                <div class="carousel-indicators">
+                                                                    <button type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide-to="0" class="active"
+                                                                        aria-current="true"
+                                                                        aria-label="Slide 1"></button>
+                                                                    <button type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide-to="1"
+                                                                        aria-label="Slide 2"></button>
+                                                                    <button type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide-to="2"
+                                                                        aria-label="Slide 3"></button>
+                                                                </div>
+
+                                                                <!-- Inner -->
+                                                                <div class="carousel-inner" style="padding: 0;">
+                                                                    <!-- Single item -->
+                                                                    <div class="carousel-item active">
+                                                                        <img src="img/goa-lawa.jpg"
+                                                                            class="d-block w-100"
+                                                                            alt="Sunset Over the City" />
+                                                                    </div>
+
+                                                                    <!-- Single item -->
+                                                                    <div class="carousel-item">
+                                                                        <img src="img/hero-bg.png"
+                                                                            class="d-block w-100"
+                                                                            alt="Canyon at Nigh" />
+                                                                    </div>
+
+                                                                    <!-- Single item -->
+                                                                    <div class="carousel-item">
+                                                                        <img src="img/sate-blater.jpg"
+                                                                            class="d-block w-100"
+                                                                            alt="Cliff Above a Stormy Sea" />
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Inner -->
+
+                                                                <!-- Controls -->
+                                                                <button class="carousel-control-prev" type="button"
                                                                     data-bs-target="#carouselBasicExample"
-                                                                    data-bs-slide-to="0" class="active"
-                                                                    aria-current="true" aria-label="Slide 1"></button>
-                                                                <button type="button"
+                                                                    data-bs-slide="prev" style="margin: 0px;">
+                                                                    <span class="carousel-control-prev-icon"
+                                                                        aria-hidden="true"></span>
+                                                                    <span class="visually-hidden">Previous</span>
+                                                                </button>
+                                                                <button class="carousel-control-next" type="button"
                                                                     data-bs-target="#carouselBasicExample"
-                                                                    data-bs-slide-to="1"
-                                                                    aria-label="Slide 2"></button>
-                                                                <button type="button"
-                                                                    data-bs-target="#carouselBasicExample"
-                                                                    data-bs-slide-to="2"
-                                                                    aria-label="Slide 3"></button>
+                                                                    data-bs-slide="next" style="margin: 0px;">
+                                                                    <span class="carousel-control-next-icon"
+                                                                        aria-hidden="true"></span>
+                                                                    <span class="visually-hidden">Next</span>
+                                                                </button>
                                                             </div>
-
-                                                            <!-- Inner -->
-                                                            <div class="carousel-inner"
-                                                                style="
-                                                                        padding: 0;
-                                                                    ">
-                                                                <!-- Single item -->
-                                                                <div class="carousel-item active">
-                                                                    <img src="img/goa-lawa.jpg" class="d-block w-100"
-                                                                        alt="Sunset Over the City" />
-                                                                </div>
-
-                                                                <!-- Single item -->
-                                                                <div class="carousel-item">
-                                                                    <img src="img/hero-bg.png" class="d-block w-100"
-                                                                        alt="Canyon at Nigh" />
-                                                                </div>
-
-                                                                <!-- Single item -->
-                                                                <div class="carousel-item">
-                                                                    <img src="img/sate-blater.jpg"
-                                                                        class="d-block w-100"
-                                                                        alt="Cliff Above a Stormy Sea" />
-                                                                </div>
+                                                            <!-- Carousel wrapper -->
+                                                            <!-- <img src="img/curug.jpg" alt="" style="border-radius: 12px;"> -->
+                                                        </div>
+                                                        <div class="col" style="margin: auto;">
+                                                            <div class="row">
+                                                                <b>Deskripsi</b>
                                                             </div>
-                                                            <!-- Inner -->
+                                                            <div class="row row-lg-6 overflow-auto"
+                                                                style="height: 200px;text-align: justify;margin-bottom: 5px;">
 
-                                                            <!-- Controls -->
-                                                            <button class="carousel-control-prev" type="button"
-                                                                data-bs-target="#carouselBasicExample"
-                                                                data-bs-slide="prev"
-                                                                style="
-                                                                        margin: 0px;
-                                                                    ">
-                                                                <span class="carousel-control-prev-icon"
-                                                                    aria-hidden="true"></span>
-                                                                <span class="visually-hidden">Previous</span>
-                                                            </button>
-                                                            <button class="carousel-control-next" type="button"
-                                                                data-bs-target="#carouselBasicExample"
-                                                                data-bs-slide="next"
-                                                                style="
-                                                                        margin: 0px;
-                                                                    ">
-                                                                <span class="carousel-control-next-icon"
-                                                                    aria-hidden="true"></span>
-                                                                <span class="visually-hidden">Next</span>
-                                                            </button>
-                                                        </div>
-                                                        <!-- Carousel wrapper -->
-                                                        <!-- <img src="img/curug.jpg" alt="" style="border-radius: 12px;"> -->
-                                                    </div>
-                                                    <div class="col" style="margin: auto">
-                                                        <div class="row">
-                                                            <b>Deskripsi</b>
-                                                        </div>
-                                                        <div class="row row-lg-6 overflow-auto"
-                                                            style="
-                                                                    height: 200px;
-                                                                    text-align: justify;
-                                                                    margin-bottom: 5px;
-                                                                ">
-                                                            <p>
-                                                                Lorem ipsum
-                                                                dolor sit
-                                                                amet,
-                                                                consectetur
-                                                                adipiscing
-                                                                elit, sed do
-                                                                eiusmod
-                                                                tempor
-                                                                incididunt
-                                                                ut labore et
-                                                                dolore magna
-                                                                aliqua. Ut
-                                                                enim ad
-                                                                minim
-                                                                veniam, quis
-                                                                nostrud
-                                                                exercitation
-                                                                ullamco
-                                                                laboris nisi
-                                                                ut aliquip
-                                                                ex ea
-                                                                commodo
-                                                                consequat.
-                                                                Duis aute
-                                                                irure dolor
-                                                                in
-                                                                reprehenderit
-                                                                in voluptate
-                                                                velit esse
-                                                                cillum
-                                                                dolore eu
-                                                                fugiat nulla
-                                                                pariatur.
-                                                                Excepteur
-                                                                sint
-                                                                occaecat
-                                                                cupidatat
-                                                                non
-                                                                proident,
-                                                                sunt in
-                                                                culpa qui
-                                                                officia
-                                                                deserunt
-                                                                mollit anim
-                                                                id est
-                                                                laborum.
-                                                                Lorem ipsum
-                                                                dolor sit
-                                                                amet,
-                                                                consectetur
-                                                                adipiscing
-                                                                elit, sed do
-                                                                eiusmod
-                                                                tempor
-                                                                incididunt
-                                                                ut labore et
-                                                                dolore magna
-                                                                aliqua. Ut
-                                                                enim ad
-                                                                minim
-                                                                veniam, quis
-                                                                nostrud
-                                                                exercitation
-                                                                ullamco
-                                                                laboris nisi
-                                                                ut aliquip
-                                                                ex ea
-                                                                commodo
-                                                                consequat.
-                                                                Duis aute
-                                                                irure dolor
-                                                                in
-                                                                reprehenderit
-                                                                in voluptate
-                                                                velit esse
-                                                                cillum
-                                                                dolore eu
-                                                                fugiat nulla
-                                                                pariatur.
-                                                                Excepteur
-                                                                sint
-                                                                occaecat
-                                                                cupidatat
-                                                                non
-                                                                proident,
-                                                                sunt in
-                                                                culpa qui
-                                                                officia
-                                                                deserunt
-                                                                mollit anim
-                                                                id est
-                                                                laborum.
-                                                            </p>
-                                                        </div>
-                                                        <div class="row"
-                                                            style="
-                                                                    vertical-align: middle;
-                                                                ">
-                                                            <table>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td align="left">
-                                                                            Harga
-                                                                            :
-                                                                            Rp
-                                                                            20.000/tiket
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="align-middle"
-                                                                            style="
-                                                                                    width: 130px;
-                                                                                ">
-                                                                            <input type="date" value=""
-                                                                                style="
-                                                                                        width: 130px;
-                                                                                        height: 40px;
-                                                                                    " />
-                                                                        </td>
-                                                                        <td class="align-middle"
-                                                                            style="
-                                                                                    width: 50px;
-                                                                                ">
-                                                                            Tiket:
-                                                                        </td>
-                                                                        <td class="align-middle"
-                                                                            style="
-                                                                                    width: 50px;
-                                                                                ">
-                                                                            <select name="" id="">
-                                                                                <option value="1">
-                                                                                    1
-                                                                                </option>
-                                                                                <option value="2">
-                                                                                    2
-                                                                                </option>
-                                                                                <option value="3">
-                                                                                    3
-                                                                                </option>
-                                                                            </select>
-                                                                        </td>
-                                                                        <td class="align-middle">
-                                                                            <button class="btn btn-primary beli"
-                                                                                data-bs-toggle="modal"
-                                                                                data-bs-target="#beli">
-                                                                                Beli
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
+                                                                <p>{{ $makanan->desc }}</p>
+                                                            </div>
+                                                            <div class="row" style="vertical-align: middle;">
+                                                                <form>
+                                                                    <table>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left" colspan="2">
+                                                                                    {{ "Harga : Rp $makanan->harga" . '/tiket' }}
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="align-middle"
+                                                                                    style="width: 130px;"><input
+                                                                                        type="date" value=""
+                                                                                        style="width: 130px; height: 40px;"
+                                                                                        name="tanggal">
+                                                                                </td>
+                                                                                <td class="align-middle"
+                                                                                    style="width: 0px;">
+                                                                                    Tiket: </td>
+                                                                                <td class="align-middle"
+                                                                                    style="width: 100px;">
+                                                                                    <select name="jumlah_tiket"
+                                                                                        id="jumlah_tiket">
+                                                                                        <option value="1">1
+                                                                                        </option>
+                                                                                        <option value="2">2
+                                                                                        </option>
+                                                                                        <option value="3">3
+                                                                                        </option>
+                                                                                        <option value="4">4
+                                                                                        </option>
+                                                                                        <option value="5">5
+                                                                                        </option>
+                                                                                        <option value="6">6
+                                                                                        </option>
+                                                                                        <option value="7">7
+                                                                                        </option>
+                                                                                        <option value="8">8
+                                                                                        </option>
+                                                                                        <option value="9">9
+                                                                                        </option>
+                                                                                        <option value="10">10
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td class="align-middle"> <button
+                                                                                        class="btn btn-primary beli"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-bs-target="#beli"
+                                                                                        type="submit"
+                                                                                        style="width: 100%">Beli</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </form>
+
+                                                            </div>
                                                         </div>
                                                     </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- End Modal Beli -->
                                 </div>
-                                <!-- End Modal Beli -->
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="box-katalog">
-                                Custom column padding
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="box-katalog">
-                                Custom column padding
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="box-katalog">
-                                Custom column padding
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="box-katalog">
-                                Custom column padding
-                            </div>
-                        </div>
+                        @empty
+                        @endforelse
+                        {{-- End Perulangan --}}
+
                     </div>
                 </div>
+
             </div>
+            {{-- End Box Katalog --}}
         </div>
     </div>
 
