@@ -8,6 +8,7 @@ use App\Http\Controllers\BudayaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\MakananController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PesananController;
 
 /*
@@ -31,6 +32,7 @@ Route::get('/katalog-wisata', [WisataController::class, 'index']);
 Route::get('/katalog-produk', [ProdukController::class, 'index']);
 Route::get('/katalog-budaya', [BudayaController::class, 'index']);
 Route::get('/pesanan', [PesananController::class, 'index']);
+Route::post('/beli', [PembayaranController::class, 'index']);
 
 Auth::routes();
 

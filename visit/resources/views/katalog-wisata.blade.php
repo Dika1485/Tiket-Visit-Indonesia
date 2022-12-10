@@ -607,7 +607,12 @@
                                                                 <p>{{ $wisata->desc }}</p>
                                                             </div>
                                                             <div class="row" style="vertical-align: middle;">
-                                                                <form>
+                                                                <form method="POST" action="{{ url('/beli') }}">
+                                                                    @csrf
+                                                                    <input type="hidden" name="id_beli"
+                                                                        value="{{ $wisata->id }}">
+                                                                    <input type="hidden" name="user"
+                                                                        value="{{ Auth::user()->id }}">
                                                                     <table>
                                                                         <tbody>
                                                                             <tr>

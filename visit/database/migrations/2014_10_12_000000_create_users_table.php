@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota');
             $table->string('provinsi');
+            $table->string('serverkey')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
