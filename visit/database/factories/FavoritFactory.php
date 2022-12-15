@@ -17,7 +17,7 @@ class FavoritFactory extends Factory
     public function definition()
     {
         return [
-            'akun_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 10),
             'menu_id' => $this->faker->numberBetween(1, 30)
         ];
     }

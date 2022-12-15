@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Akun;
+
 use App\Models\Chat;
 use App\Models\Menu;
-use App\Models\User;
+
 use App\Models\Media;
 use App\Models\Daftar;
 use App\Models\Rating;
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
 
         Menu::factory(30)->create();
         Transaksi::factory(10)->create();
-        Daftar::factory(10)->create();
+        Daftar::factory(30)->create();
         Rating::factory(10)->create();
         Notifikasi::factory(10)->create();
         Kategori::factory(4)->create();

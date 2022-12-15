@@ -152,7 +152,13 @@ section {
     color: #fff;
     background-color: #7aaffe;
     border: 0px;
+    transition: 0.3s;
 }
+.login-register:hover {
+    color: #fff;
+    background-color: #418cfe;
+}
+
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
@@ -352,6 +358,9 @@ section {
     font-weight: 700;
     color: #fff;
     font-family: var(--font-primary);
+}
+.search {
+    width: 20%;
 }
 
 /*--------------------------------------------------------------
@@ -745,6 +754,26 @@ h4 .title {
     .card img {
         height: 11em;
     }
+}
+
+/* -------------------------------------------------------------
+# Pesanan
+---------------------------------------------------------------*/
+.pesanan {
+    padding: 16px;
+    margin: 12px auto;
+    width: 97%;
+    border-radius: 16px;
+    background-color: #ffffff;
+    height: 200px;
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.253));
+}
+
+.pesanan-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    object-fit: fill;
 }
 
 /*--------------------------------------------------------------
@@ -1218,72 +1247,6 @@ textarea {
 }
 
 /*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .services-list {
-    padding: 10px 30px;
-    border: 1px solid #d3dff3;
-    margin-bottom: 20px;
-}
-
-.service-details .services-list a {
-    display: block;
-    line-height: 1;
-    padding: 8px 0 8px 15px;
-    border-left: 3px solid #c2cbdf;
-    margin: 20px 0;
-    color: var(--color-secondary);
-    transition: 0.3s;
-}
-
-.service-details .services-list a.active {
-    font-weight: 700;
-    border-color: var(--color-primary);
-}
-
-.service-details .services-list a:hover {
-    border-color: var(--color-primary);
-}
-
-.service-details .services-img {
-    margin-bottom: 20px;
-}
-
-.service-details h3 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--color-secondary);
-}
-
-.service-details h4 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-secondary);
-}
-
-.service-details p {
-    font-size: 15px;
-}
-
-.service-details ul {
-    list-style: none;
-    padding: 0;
-    font-size: 15px;
-}
-
-.service-details ul li {
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-}
-
-.service-details ul i {
-    font-size: 20px;
-    margin-right: 8px;
-    color: var(--color-primary);
-}
-
-/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
@@ -1316,16 +1279,9 @@ textarea {
     color: #fff;
 }
 
-@media (max-width: 575px) {
-    .hero h2 {
-        font-size: 30px;
-    }
-}
-
-.hero p {
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 40px;
+.navmargin {
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .hero form {
@@ -1334,6 +1290,12 @@ textarea {
     border-radius: 6px;
     width: 640px;
     height: 56px;
+}
+
+.hero p {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 40px;
 }
 
 .hero form .form-control {
@@ -1517,4 +1479,39 @@ textarea {
 
 .footer .credits a {
     color: #fff;
+}
+@media (max-width: 575px) {
+    .hero h2 {
+        font-size: 25px;
+        margin-top: 80px;
+    }
+    .navmargin {
+        margin-left: 24px;
+        margin-right: 12px;
+    }
+    .hero {
+        padding: 12px;
+    }
+    .textlg {
+        margin: auto;
+    }
+    .textlg2 {
+        margin: auto;
+    }
+    .multiple {
+        display: none;
+    }
+    .hero form {
+        width: auto;
+    }
+    .hero form .form-control {
+        padding: 0px;
+        border: none;
+        margin-right: 4px;
+        text-align: left;
+        font-size: 12px;
+    }
+    .search {
+        width: 35%;
+    }
 }

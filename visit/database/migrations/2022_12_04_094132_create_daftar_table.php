@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('daftars', function (Blueprint $table) {
             $table->id();
             $table->integer('menu_id');
-            $table->integer('akun_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

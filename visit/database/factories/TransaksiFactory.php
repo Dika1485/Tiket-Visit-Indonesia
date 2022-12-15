@@ -17,21 +17,13 @@ class TransaksiFactory extends Factory
      */
     public function definition()
     {
-        // $array = DB::select('select id from akuns');
-        $id_w = DB::select('select id from menus');
-        // $id_w->toArray();
-        $id_a = DB::select('select id from akuns');
-        // $id_a->toArray();
 
-        // foreach ($a as $a1) {
-        //     $
-        // }
 
         return [
 
             'kode' => $this->faker->unique()->regexify('[A-Z]{5}[0-4]{3}'),
             'menu_id' => $this->faker->numberBetween(1, 30),
-            'akun_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 10),
             'jumlah' => $this->faker->numberBetween(1, 5),
             'status' => $this->faker->randomElement(["pending", "setlement", "canceled"]),
             'metode' => $this->faker->randomElement(["Bank"], ["E-Wallet"], ["Pulsa"]),

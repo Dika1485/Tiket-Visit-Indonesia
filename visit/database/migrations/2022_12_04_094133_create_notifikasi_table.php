@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('notifikasis', function (Blueprint $table) {
             $table->id();
-            $table->integer('akun_id');
+            $table->integer('user_id');
             $table->dateTime('time');
             $table->string('judul');
             $table->text('notif');

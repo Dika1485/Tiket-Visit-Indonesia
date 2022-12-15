@@ -17,8 +17,8 @@ class DaftarFactory extends Factory
     public function definition()
     {
         return [
-            'menu_id' => $this->faker->numberBetween(1, 30),
-            'akun_id' => $this->faker->numberBetween(1, 10),
+            'menu_id' => $this->faker->unique()->numberBetween(1, 30),
+
         ];
     }
 }

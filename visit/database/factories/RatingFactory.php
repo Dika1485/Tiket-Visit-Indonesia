@@ -18,7 +18,7 @@ class RatingFactory extends Factory
     {
         return [
             'menu_id' => $this->faker->numberBetween(1, 30),
-            'akun_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 10),
             'rate' => $this->faker->numberBetween(1, 5)
         ];
     }

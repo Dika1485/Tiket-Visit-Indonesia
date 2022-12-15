@@ -1,4 +1,3 @@
-
 @extends('layout.nav')
 @section('header')
     <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
@@ -264,10 +263,10 @@
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="clearfix mb-3"> <span
-                                        class="float-start badge rounded-pill bg-primary">{{ $->nama }}</span>
-                                    <span class="float-end price-hp">{{ $wisata->harga }}</span>
+                                        class="float-start badge rounded-pill bg-primary">{{ $makanan->nama }}</span>
+                                    <span class="float-end price-hp">{{ $makanan->harga }}</span>
                                 </div>
-                                <h5 class="card-title">{{ $wisata->desc }}</h5>
+                                <h5 class="card-title">{{ $makanan->desc }}</h5>
                                 <div class="text-center my-4"> <a href="#" class="btn btn-warning">Check offer</a>
                                 </div>
                             </div>

@@ -32,7 +32,14 @@ Route::get('/katalog-wisata', [WisataController::class, 'index']);
 Route::get('/katalog-produk', [ProdukController::class, 'index']);
 Route::get('/katalog-budaya', [BudayaController::class, 'index']);
 Route::get('/pesanan', [PesananController::class, 'index']);
-Route::post('/beli', [PembayaranController::class, 'index']);
+Route::post('/beliproduk', [ProdukController::class, 'index']);
+Route::get('/beliproduk', [ProdukController::class, 'index']);
+Route::post('/belimakanan', [MakananController::class, 'index']);
+Route::get('/belimakanan', [MakananController::class, 'index']);
+Route::post('/beliwisata', [WisataController::class, 'index']);
+Route::get('/beliwisata', [WisataController::class, 'index']);
+Route::get('/pesanan', [PesananController::class, 'index']);
+Route::post('/afterpaywisata', [WisataController::class, 'payment_post']);
 
 Auth::routes();
 
