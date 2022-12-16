@@ -84,6 +84,7 @@ class RegisterController extends Controller
             'kecamatan' => $data['kecamatan'],
             'kota' => $data['kota'],
             'provinsi' => $data['provinsi'],
+
         ]);
     }
     // protected function createp(array $data)

@@ -35,7 +35,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Menu::factory(30)->create();
-        Transaksi::factory(10)->create();
         Daftar::factory(30)->create();
         Rating::factory(10)->create();
         Notifikasi::factory(10)->create();

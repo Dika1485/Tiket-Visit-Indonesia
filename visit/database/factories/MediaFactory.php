@@ -19,6 +19,5 @@ class MediaFactory extends Factory
         return [
             'menu_id' => $this->faker->numberBetween(1, 30),
             'namefile' => $this->faker->mimeType()
-        ];
     }
 }

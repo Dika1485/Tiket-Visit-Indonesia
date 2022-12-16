@@ -27,14 +27,14 @@ class MakananController extends Controller
             $satu = Daftar::where('menu_id', $request->id_beli)->get();
             $kategori = $request->kategori;
             $dua = User::where('id', $satu[0]->user_id)->get();
-            $ckey = $dua[0]->clientkey;
+            // $ckey = $dua[0]->clientkey;
             $menu = Menu::where('id', $request->id_beli)->get();
             $amount = $menu[0]->harga * $request->jumlah_tiket;
 
             $user = Auth::user();
             // die();
 
-            \Midtrans\Config::$serverKey = $dua[0]->serverkey;
+            \Midtrans\Config::$serverKey = env('SERVER_KEY');
             // \Midtrans\Config::$serverKey = "SB-Mid-server-Qwe1scZLlz8VpA5caRlRAQq4";
 
 
@@ -53,27 +53,29 @@ class MakananController extends Controller
             );
             $snapToken = \Midtrans\Snap::getSnapToken($params);
             if ($kategori == "makanan") {
-                return view('katalog-makanan', ['ckey' => $ckey, 'snapToken' => $snapToken, 'wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
+                return view('katalog-makanan', ['menu_id' => $request->id_beli, 'schedule' => $request->tanggal, 'number' => $request->jumlah_tiket,/*  'ckey' => $ckey,  */ 'snapToken' => $snapToken, 'wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
             }
         } else {
             return view('katalog-makanan', ['wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
         }
     }
 
-    function payment_post(Request $request)
+    public function payment_post(Request $request)
     {
         $json = json_decode($request->get('json'));
         $order = new Transaksi();
         $order->kode = $json->order_id;
         $order->status = $json->transaction_status;
-        $order->user_id = $request->get('user_id');
-        $order->menu_id = $request->get('menu_id');
-        $order->schedule = $request->get('schedule');
-        $order->jumlah = $request->get('number');
+        $order->user_id = $request->user_id;
+        $order->menu_id = $request->menu_id;
+        $order->schedule = $request->schedule;
+        $order->jumlah = $request->number;
         $order->midtrans_id = $json->transaction_id;
         $order->total = $json->gross_amount;
         $order->metode = $json->payment_type;
-        $order->payment_code = $json->payment_code;
+        if (isset($json->payment_code)) {
+            $order->payment_code = $json->payment_code;
+        }
         $order->pdf_url = $json->pdf_url;
         return $order->save() ? redirect(url('/pesanan')) : redirect(url('/pesanan'));
     }

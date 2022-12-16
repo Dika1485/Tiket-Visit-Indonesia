@@ -388,7 +388,7 @@ section {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 0 10px 30px;
+        padding: 10px 20px 10px 20px;
         font-family: var(--font-primary);
         font-size: 16px;
         font-weight: 400;
@@ -835,7 +835,7 @@ textarea {
 }
 
 .beli {
-    width: 70%;
+    width: 100%;
     background-color: #7aaffe;
     border-radius: 16px;
     border: 0;
@@ -868,12 +868,13 @@ textarea {
 }
 
 .white-bg {
-    width: 100.9%;
+    width: 100%;
     height: auto;
     background-color: #fff9f9;
     opacity: 1;
     position: relative;
     padding: 60px 28px 28px 32px;
+    margin: auto;
 }
 
 #judul-halaman {
@@ -1362,6 +1363,14 @@ textarea {
     font-size: 15px;
     font-weight: 600;
 }
+#go-smw {
+    width: 100%;
+}
+
+.date {
+    width: 130px;
+    height: 40px;
+}
 
 /*--------------------------------------------------------------
 # Footer
@@ -1509,9 +1518,84 @@ textarea {
         border: none;
         margin-right: 4px;
         text-align: left;
-        font-size: 12px;
+        font-size: 13px;
     }
     .search {
-        width: 35%;
+        width: 30%;
+        font-size: 16px;
+        padding: 0px;
+        text-align: center;
+    }
+    .hero form .btn-primary {
+        background-color: var(--color-primary);
+        padding: 0px 10px;
+        border-radius: 16px;
+        background-color: #7aaffe;
+        border: 0px;
+    }
+    .box {
+        width: 100%;
+        height: auto;
+    }
+    .icon-box {
+        padding: 8px;
+    }
+    .icon {
+        padding: 5px;
+    }
+    .faq-span {
+        display: none;
+    }
+    .card {
+        margin: 0 3em;
+    }
+    .carousel-control-prev {
+        margin-left: 30px;
+    }
+    .carousel-control-next {
+        margin-right: 30px;
+    }
+    #go-smw {
+        width: 100%;
+    }
+    .dropdown-menu {
+        width: 100%;
+    }
+    .vr {
+        display: none;
+    }
+    .box-katalog {
+        height: 200px;
+        width: 290px;
+        background-color: #7aaffe;
+        padding: 12px;
+        border-radius: 16px;
+        margin: 12px auto;
+        box-shadow: inset 0px -45px 30px 5px rgb(0 0 0 / 80%);
+    }
+    .col.col-3.katalog-list {
+        width: 100%;
+    }
+    .katalog-content {
+        width: 100%;
+    }
+    .beli {
+        width: 100%;
+        background-color: #7aaffe;
+        border-radius: 16px;
+        border: 0;
+    }
+    .date {
+        width: 50px;
+        height: 40px;
+    }
+    .white-bg {
+        width: 100%;
+        height: auto;
+        background-color: #fff9f9;
+        opacity: 1;
+        position: relative;
+        padding: 32px 28px 28px 32px;
+        margin: auto;
     }
 }

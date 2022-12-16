@@ -3,13 +3,15 @@
 use App\Models\Akun;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\BudayaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\MakananController;
-use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PesananController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,12 @@ Route::post('/beliwisata', [WisataController::class, 'index']);
 Route::get('/beliwisata', [WisataController::class, 'index']);
 Route::get('/pesanan', [PesananController::class, 'index']);
 Route::post('/afterpaywisata', [WisataController::class, 'payment_post']);
-
+Route::post('/afterpaymakanan', [MakananController::class, 'payment_post']);
+Route::post('/afterpayproduk', [ProdukController::class, 'payment_post']);
+Route::get('/profil', [UserController::class, 'index']);
+Route::get('/editprofil', [UserController::class, 'edit']);
+Route::post('/editprofil', [UserController::class, 'edit2']);
+Route::get('/daftartransaksi', [TransaksiController::class, 'view']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

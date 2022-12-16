@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Visit Indonesia - Bantuan</title>
+    <title>Visit Indonesia - Pesanan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,6 +22,7 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -31,6 +32,7 @@
 
     <!-- Template Main CSS File -->
     <link href="css/main1.css" rel="stylesheet">
+
 
     <!-- =======================================================
   * Template Name: Logis - v1.2.1
@@ -54,76 +56,74 @@
     </section><!-- End Hero Section -->
 
     <!-- Section Pesanan -->
-    <div class="row white-bg">
-        <div class="pesanan">
-            <div class="row" style="height: 100%;">
-                <div class="col col-3">
-                    <div class="pesanan-img" style="background-image: url('img/curug.jpg');">
 
-                    </div>
-                    <!-- <img src="img/curug.jpg" alt="" style="padding: 8px;border-radius: 16px;margin-bottom: 12px;"> -->
+    <div class="container mt-5 mb-5">
 
-                </div>
-                <div class="col">
-                    <table style="height: 100%;">
-                        <tr style="vertical-align:text-top;">
-                            <td colspan="4"><B>Nama Pesanan</B></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align:justify;">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.</td>
-                        </tr>
-                        <tr style="vertical-align:text-bottom;">
-                            <td><b>Jumlah Tiket</b> : 1</td>
-                            <td><b>Harga </b>: 20.000 </td>
-                            <td><b>Metode Pembayaran</b> : Transfer Bank</td>
-                            <td><b>Status</b> : Selesai</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <table id="transaksi" class="display" style="width:100%; margin-bottom:20px;">
+            <thead>
+                <tr border="1">
+                    <th>Nama Pesanan</th>
 
+                    <th>Kode Transaksi</th>
+                    <th>Schedule</th>
+                    <th>Status</th>
+                    <th>Jumlah Tiket</th>
+                    <th>Harga Total</th>
+                    <th style="display: none;">Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($pesanan as $pesanan)
+                    <tr>
+                        <td>{{ $pesanan->nama }}</td>
+                        <td>{{ $pesanan->kode }}</td>
+                        <td>{{ $pesanan->schedule }}</td>
+                        <td>
+                            @if ($pesanan->status == 'settlement')
+                                {{ 'Sukses' }}
+                            @endif
 
-        <div class="pesanan">
-            <div class="row" style="height: 100%;">
-                <div class="col col-3">
-                    <div class="pesanan-img" style="background-image: url('img/curug.jpg');">
+                            @if ($pesanan->status == 'pending')
+                                {{ 'Pending' . ' ' }}
+                                <a href="{{ $pesanan->pdf_url }}" target="_blank">( Detail Tagihan )</a>
+                            @endif
+                        </td>
+                        <td>{{ $pesanan->jumlah }}</td>
+                        <td>{{ $pesanan->total }}</td>
+                        <td style="display: none;">{{ $pesanan->created_by }}</td>
 
-                    </div>
-
-                </div>
-                <div class="col">
-                    <table style="height: 100%;">
-                        <tr style="vertical-align:text-top;">
-                            <td colspan="4"><B>Nama Pesanan</B></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align:justify;">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.</td>
-                        </tr>
-                        <tr style="vertical-align:text-bottom;">
-                            <td><b>Jumlah Tiket</b> : 1</td>
-                            <td><b>Harga </b>: 20.000 </td>
-                            <td><b>Metode Pembayaran</b> : Transfer Bank</td>
-                            <td><b>Status</b> : Selesai</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
+                    </tr>
+                @empty
+                @endforelse
+            </tbody>
+        </table>
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#transaksi').DataTable({
+                order: [
+                    [6, 'desc']
+                ],
+            });
+
+        });
+    </script>
 </body>
 @include('footer')
+
+</html>
+
+
+
+
+
+</body>
+
+
 
 </html>

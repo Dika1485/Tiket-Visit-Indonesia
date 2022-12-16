@@ -79,28 +79,48 @@
 
             <div class="icon-boxes position-relative">
                 <div class="row gy-2 mt-5" style="width: 80%; margin:auto">
-                    <div class="col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-strava"></i></div>
-                            <h4 class="title"><a href="katalog-wisata" class="stretched-link">Wisata</a></h4>
-                        </div>
-                    </div>
-                    <!--End Icon Box -->
+                    <table cellpadding="10">
+                        <tr>
+                            <td colspan="2">
+                                <div class="col box" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="icon-box">
+                                        <div class="icon"><i class="bi bi-strava"></i></div>
+                                        <h4 class="title"><a href="katalog-wisata" class="stretched-link">Wisata</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!--End Icon Box -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div class="col box" data-aos="fade-up" data-aos-delay="500">
+                                        <div class="icon-box">
+                                            <div class="icon"><i class="bi bi-box2-fill"></i></div>
+                                            <h4 class="title"><a href="katalog-produk"
+                                                    class="stretched-link">Produk</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <!--End Icon Box -->
+                                    <div class="col box" data-aos="fade-up" data-aos-delay="500">
+                                        <div class="icon-box">
+                                            <div class="icon"><i class="fas fa-drumstick-bite"></i></div>
+                                            <h4 class="title"><a href="katalog-makanan"
+                                                    class="stretched-link">Makanan</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <!--End Icon Box -->
+                                </div>
 
-                    <div class="col" data-aos="fade-up" data-aos-delay="500">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-box2-fill"></i></div>
-                            <h4 class="title"><a href="katalog-produk" class="stretched-link">Produk</a></h4>
-                        </div>
-                    </div>
-                    <!--End Icon Box -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="500">
-                        <div class="icon-box">
-                            <div class="icon"><i class="fas fa-drumstick-bite"></i></div>
-                            <h4 class="title"><a href="katalog-makanan" class="stretched-link">Makanan</a></h4>
-                        </div>
-                    </div>
-                    <!--End Icon Box -->
+                            </td>
+                        </tr>
+                    </table>
+
+
+
                 </div>
             </div>
             <!-- End Fitur Section -->
@@ -120,7 +140,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $wisata->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($wisata->desc, 100) }}</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             @empty
@@ -132,7 +152,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                             <div class="card d-none d-md-block">
@@ -141,7 +161,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div> --}}
                         </div>
@@ -154,7 +174,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $makanan->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($makanan->desc, 100) }}</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             @empty
@@ -165,7 +185,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                             <div class="card d-none d-md-block">
@@ -174,7 +194,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div> --}}
                         </div>
@@ -187,7 +207,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $produk->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($produk->desc, 100) }}</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             @empty
@@ -198,7 +218,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                             <div class="card d-none d-md-block">
@@ -207,7 +227,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div> --}}
                         </div>
@@ -225,13 +245,16 @@
                 </button>
             </div>
 
+            <!-- Mobile trending -->
+
+
 
             <!-- ======= Frequently Asked Questions Section ======= -->
             <section id="faq" class="faq">
-                <div class="container" data-aos="fade-up">
+                <div class="container" data-aos="fade-up" style="margin-bottom:5%;">
 
                     <div class="section-header">
-                        <span>Frequently Asked Questions</span>
+
                         <h2>Frequently Asked Questions</h2>
 
                     </div>

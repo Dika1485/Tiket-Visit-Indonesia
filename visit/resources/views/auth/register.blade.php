@@ -72,12 +72,13 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="nama" class="col-md-4 col-form-label text-md-end">Nama Lengkap</label>
+                                <label for="nama"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Nama Lengkap') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="nama" type="text"
                                         class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                        value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                                        value="{{ old('nama1') }}" required autofocus>
 
                                     @error('nama')
                                         <span class="invalid-feedback" role="alert">
@@ -158,7 +159,7 @@
                                 <div class="col-md-6">
                                     <input id="desa" type="text"
                                         class="form-control @error('desa') is-invalid @enderror" name="desa"
-                                        value="{{ old('desa') }}" required autocomplete="desa" autofocus>
+                                        value="{{ old('desa') }}" autocomplete="desa" autofocus>
 
                                     @error('desa')
                                         <span class="invalid-feedback" role="alert">
@@ -174,7 +175,7 @@
                                 <div class="col-md-6">
                                     <input id="jalan" type="text"
                                         class="form-control @error('jalan') is-invalid @enderror" name="jalan"
-                                        value="{{ old('jalan') }}" required autocomplete="jalan" autofocus>
+                                        value="{{ old('jalan') }}" autocomplete="jalan" autofocus>
 
                                     @error('jalan')
                                         <span class="invalid-feedback" role="alert">

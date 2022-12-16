@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Visit Indonesia - Bantuan</title>
+    <title>Visit Indonesia - katalog Makanan</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -37,11 +37,11 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-    @if (isset($ckey) && isset($snapToken))
+    @if (isset($snapToken))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
         <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-            data-client-key="{{ $ckey }}"></script>
+            data-client-key="{{ env('CLIENT_KEY') }}"></script>
         <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
         <script src="https://code.jquery.com/jquery-3.6.2.min.js"
             integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
@@ -65,7 +65,7 @@
     <!-- Section Katalog -->
     <div class="row white-bg">
         <div class="row g-2">
-            <div class="col col-3">
+            <div class="col col-3 katalog-list">
                 <div class="box-fitur" style="transform: rotate(0)">
                     <div class="row">
                         <div class="col col-lg-2" style="padding: 0px; text-align: center">
@@ -125,19 +125,11 @@
                     <div class="row gx-5 mb-3">
                         {{-- persatu awal --}}
                         @forelse ($makanans as $makanan)
-                            <div class="col ">
+                            <div class="col katalog-content">
                                 <div class="box-katalog"
                                     style="background-image: url('img/curug.jpg'); background-size: cover;">
-                                    <div class="row">
-                                        <div class="col" align="left">
-                                            <i class="bi bi-star-fill"style="color: yellow;"><span s
-                                                    tyle="color: white; font-weight: bold;">4.5/5</span></i>
-                                        </div>
-                                        <div class="col" align="right">
-                                            <i class="bi bi-heart fa-lg" style="color: white;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 88px;">
+
+                                    <div class="row" style="margin-top: 120px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $makanan->nama }}</h4>
                                             <h5 style="color: white;">{{ $makanan->harga }}</h5>
@@ -186,6 +178,8 @@
                                                                 </div>
 
                                                             </div>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="col" style="margin: auto;">
                                                                 <div class="row">
                                                                     <b>Deskripsi</b>
@@ -214,10 +208,13 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td class="align-middle"
-                                                                                        style="width: 130px;"><input
+                                                                                        style="width: 0px;"
+                                                                                        align="left">
+                                                                                        Tanggal: </td>
+                                                                                    <td class="align-middle date"
+                                                                                        align="left"><input
                                                                                             type="date" value=""
-                                                                                            style="width: 130px; height: 40px;"
-                                                                                            name="tanggal">
+                                                                                            name="tanggal" class="">
                                                                                     </td>
                                                                                     <td class="align-middle"
                                                                                         style="width: 0px;">
@@ -248,7 +245,10 @@
                                                                                             </option>
                                                                                         </select>
                                                                                     </td>
-                                                                                    <td class="align-middle"> <button
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="align-middle"
+                                                                                        colspan="4"> <button
                                                                                             class="btn btn-primary beli"
                                                                                             data-bs-toggle="modal"
                                                                                             data-bs-target="#beli"
@@ -284,16 +284,21 @@
             {{-- End Box Katalog --}}
         </div>
     </div>
-    @if (isset($ckey) && isset($snapToken))
-        <form id="submit_form" action="{{ url('/afterpaywisata') }}" method="POST">
+    @if (isset($snapToken))
+        <form id="submit_form" action="{{ url('/afterpaymakanan') }}" method="POST">
             @csrf
             <input type="hidden" name="json" id="json_callback">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            <input type="hidden" name="menu_id" value="{{ $menu_id }}">
+            <input type="hidden" name="menu_id" value="{{ $menu_id }}">
+            <input type="hidden" name="schedule" value="{{ $schedule }}">
+            <input type="hidden" name="number" value="{{ $number }}">
         </form>
         <script type="text/javascript">
             // For example trigger on button clicked, or any time you need
 
             // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-            window.snap.pay('{{ $snapToken }}'), {
+            window.snap.pay('{{ $snapToken }}', {
                 onSuccess: function(result) {
                     /* You may add your own implementation here */
                     alert("payment success!");
@@ -316,7 +321,7 @@
                     /* You may add your own implementation here */
                     alert('you closed the popup without finishing the payment');
                 }
-            };
+            });
             // customer will be redirected after completing payment pop-up
             function send_response_to_form(result) {
                 document.getElementById('json_callback').value = JSON.stringify(result);

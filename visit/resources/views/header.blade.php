@@ -25,6 +25,7 @@
 
     <!-- Navbar If Login -->
     @auth
+
         <div class="container-fluid d-flex justify-content-between navmargin" style="width:100%;padding: 0;">
             <a href="index" class="logo d-flex align-items-center">
                 <h3 class="textlg">Visit &nbsp; </h3>
@@ -41,10 +42,16 @@
                         <a class="nav-link dropdown-toggle active" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">{{ Auth::user()->email }}</a>
+
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-black" href="notifikasi">Notifikasi</a>
+
+                            <a class="dropdown-item text-black" href="profil">Profil</a>
                             <a class="dropdown-item text-black" href="pesanan">Pesanan Saya</a>
-                            <a class="dropdown-item text-black" href="favorit">Favorit</a>
+                            @if (Auth::user()->ispenjual)
+                                <a class="dropdown-item text-black" href="daftartransaksi">Daftar Transaksi</a>
+                                <a class="dropdown-item text-black" href="tambah-menu">Tambah Menu</a>
+                                <a class="dropdown-item text-black" href="edit-menu">Edit Menu</a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-black" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -54,6 +61,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
+
                 </ul>
                 </li>
                 </ul>
