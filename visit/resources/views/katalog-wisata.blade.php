@@ -110,10 +110,15 @@
                 <div class="container px-6 text-center">
                     <div class="row gx-5 mb-3">
                         {{-- persatu awal --}}
-                        @forelse ($wisatas as $wisata)
+                        @for ($i = 0; $i < $wisatas->count();)
+                            @php
+                                
+                                $j = $i + 1;
+                                $wisata = $wisatas[$i];
+                            @endphp
                             <div class="col katalog-content">
                                 <div class="box-katalog"
-                                    style="background-image: url('img/curug.jpg'); background-size: cover;">
+                                    style="background-image: url('images/{{ $wisata->namefile }}'); background-size: cover;">
                                     <div class="row" style="margin-top: 120px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $wisata->nama }}</h4>
@@ -122,7 +127,7 @@
                                         <div class="col" style="margin: auto;" align="right">
                                             @auth
                                                 <button class="btn btn-primary beli" data-bs-toggle="modal"
-                                                    data-bs-target="#beli{{ $wisata->id }}">Beli</button>
+                                                    data-bs-target="#beli{{ $wisata->menu_id }}">Beli</button>
                                             @endauth
                                             @guest
                                                 <button class="btn btn-primary beli" data-bs-toggle="modal"
@@ -132,7 +137,7 @@
                                     </div>
                                     <!-- Modal Beli -->
                                     @auth
-                                        <div class="modal" id="beli{{ $wisata->id }}" tabindex="-1">
+                                        <div class="modal" id="beli{{ $wisata->menu_id }}" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content ">
                                                     <div class="modal-header">
@@ -149,30 +154,59 @@
                                                                 <div id="carouselBasicExample"
                                                                     class="carousel slide carousel-fade"
                                                                     data-bs-ride="carousel">
-
-
                                                                     <!-- Inner -->
                                                                     <div class="carousel-inner" style="padding: 0;">
                                                                         <!-- Single item -->
+
                                                                         <div class="carousel-item active">
-                                                                            <img src="img/goa-lawa.jpg"
-                                                                                class="d-block w-100"
-                                                                                alt="Sunset Over the City" />
+                                                                            <img src="images/{{ $wisata->namefile }}"
+                                                                                class="d-block w-100" alt=""
+                                                                                style="width: 300px; height:300px;object-fit:fill;" />
                                                                         </div>
-
-
+                                                                        @if ($wisata->menu_id != null)
+                                                                            @for (; $j < $wisatas->count(); $j++)
+                                                                                @php
+                                                                                    if ($wisatas[$j]->menu_id != $wisata->menu_id) {
+                                                                                        break;
+                                                                                    }
+                                                                                    
+                                                                                @endphp
+                                                                                <div class="carousel-item">
+                                                                                    <img src="images/{{ $wisatas[$j]->namefile }}"
+                                                                                        class="d-block w-100"
+                                                                                        alt=""
+                                                                                        style="width: 300px; height:300px;object-fit:fill;" />
+                                                                                </div>
+                                                                            @endfor
+                                                                        @endif
                                                                     </div>
-
+                                                                    <button class="carousel-control-prev" type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide="prev" style="margin: 0px;">
+                                                                        <span class="carousel-control-prev-icon"
+                                                                            aria-hidden="true"></span>
+                                                                        <span class="visually-hidden">Previous</span>
+                                                                    </button>
+                                                                    <button class="carousel-control-next" type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide="next" style="margin: 0px;">
+                                                                        <span class="carousel-control-next-icon"
+                                                                            aria-hidden="true"></span>
+                                                                        <span class="visually-hidden">Next</span>
+                                                                    </button>
                                                                 </div>
+                                                                <!-- Carousel wrapper -->
+                                                                <!-- <img src="assets/img/curug.jpg" alt="" style="border-radius: 12px;"> -->
                                                             </div>
                                                         </div>
+
                                                         <div class="row">
                                                             <div class="col" style="margin: auto;">
                                                                 <div class="row">
                                                                     <b>Deskripsi</b>
                                                                 </div>
                                                                 <div class="row row-lg-6 overflow-auto"
-                                                                    style="height: 150px;text-align: justify;margin-bottom: 5px;">
+                                                                    style="height: 70px;text-align: justify;margin-bottom: 5px;">
 
                                                                     <p>{{ $wisata->desc }}</p>
                                                                 </div>
@@ -200,9 +234,10 @@
                                                                                         align="left">
                                                                                         Tanggal: </td>
                                                                                     <td class="align-middle date"
-                                                                                        align="left"><input
-                                                                                            type="date" value=""
-                                                                                            name="tanggal" class="">
+                                                                                        align="left">
+                                                                                        <input type="date"
+                                                                                            value="" name="tanggal"
+                                                                                            class="">
                                                                                     </td>
                                                                                     <td class="align-middle"
                                                                                         style="width: 0px;">
@@ -237,8 +272,8 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td class="align-middle"
-                                                                                        colspan="4"> <button
-                                                                                            id="pay-button"
+                                                                                        colspan="4">
+                                                                                        <button id="pay-button"
                                                                                             class="btn btn-primary beli"
                                                                                             data-bs-toggle="modal"
                                                                                             data-bs-target="#beli"
@@ -263,8 +298,11 @@
                                     <!-- End Modal Beli -->
                                 </div>
                             </div>
-                        @empty
-                        @endforelse
+                            @php
+                                $i = $j;
+                            @endphp
+                        @endfor
+
                         {{-- End Perulangan --}}
 
                     </div>
@@ -294,19 +332,19 @@
                 onSuccess: function(result) {
                     /* You may add your own implementation here */
                     alert('transaksi berhasil');
-                    console.log(result);
+
                     send_response_to_form(result);
                 },
                 onPending: function(result) {
                     /* You may add your own implementation here */
                     alert("wating your payment!");
-                    console.log(result);
+
                     send_response_to_form(result);
                 },
                 onError: function(result) {
                     /* You may add your own implementation here */
                     alert("payment failed!");
-                    console.log(result);
+
                     send_response_to_form(result);
                 },
                 onClose: function() {

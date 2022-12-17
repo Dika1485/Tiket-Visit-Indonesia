@@ -49,8 +49,7 @@
                             <a class="dropdown-item text-black" href="pesanan">Pesanan Saya</a>
                             @if (Auth::user()->ispenjual)
                                 <a class="dropdown-item text-black" href="daftartransaksi">Daftar Transaksi</a>
-                                <a class="dropdown-item text-black" href="tambah-menu">Tambah Menu</a>
-                                <a class="dropdown-item text-black" href="edit-menu">Edit Menu</a>
+                                <a class="dropdown-item text-black" href="viewmenu">Menu Saya</a>
                             @endif
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-black" href="{{ route('logout') }}"

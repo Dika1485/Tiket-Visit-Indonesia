@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Visit Indonesia - Daftar Transaksi</title>
+    <title>Visit Indonesia - Pesanan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -53,41 +53,44 @@
         <div class="black-bg">
         </div>
         <div class="grey-bg">
-            <h2 id="judul-halaman" class="text-white" align="center">Daftar Transaksi</h2>
+            <h2 id="judul-halaman" class="text-white" align="center">View Menu</h2>
         </div>
 
     </section><!-- End Hero Section -->
-    <div class="container mt-5 mb-5">
 
-        <table id="daftar" class="display" style="width:100%">
+    <div class="container mt-5 mb-5">
+        <a href="tambahmenu"><button class="btn btn-primary" style="width: 15%; margin-bottom:12px;">Tambah
+                Menu</button></a>
+        <table id="viewmenu" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Kode Transaksi</th>
                     <th>Nama Menu</th>
-                    <th>Pembeli</th>
-                    <th>Jadwal</th>
-                    <th>Jumlah Tiket</th>
-                    <th>Status</th>
-                    <th>Pendapatan</th>
-                    <th>Midtrans ID</th>
-                    <th>Payment Code</th>
-                    <th>Metode Bayar</th>
-
+                    <th>Harga</th>
+                    <th>Deskripsi</th>
+                    <th>Kota</th>
+                    <th>Aksi</th>
+                    <th style="display: none;">Modified</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($transaksi as $transaksi)
+                @forelse($menu as $menu)
                     <tr>
-                        <td>{{ $transaksi->kode }}</td>
-                        <td>{{ $transaksi->namamenu }}</td>
-                        <td>{{ $transaksi->nama }}</td>
-                        <td>{{ $transaksi->schedule }}</td>
-                        <td>{{ $transaksi->jumlah }}</td>
-                        <td>{{ $transaksi->status }}</td>
-                        <td>{{ $transaksi->total }}</td>
-                        <td>{{ $transaksi->midtrans_id }}</td>
-                        <td>{{ $transaksi->payment_code }}</td>
-                        <td>{{ $transaksi->metode }}</td>
+                        <td>{{ $menu->nama }}</td>
+                        <td>{{ $menu->harga }}</td>
+                        <td>{{ Str::limit($menu->desc, 100) }}</td>
+                        <td>{{ $menu->kota }}</td>
+                        <td>
+                            <div align="center">
+                                <a href="editmenu?id={{ $menu->id }}"><button class="btn btn-success"
+                                        style="width: 30%; margin: 4px;"><i class="bi bi-pencil"></i></button></a>
+                                <a href="hapusmenu?id={{ $menu->id }}"><button class="btn btn-danger"
+                                        style="width: 30%; margin: 4px;"><i class="bi bi-trash"></i></button></a>
+                            </div>
+
+                        </td>
+                        <td style="display : none;">{{ $menu->updated_at }}</td>
+
+
                     </tr>
                 @empty
                 @endforelse
@@ -106,11 +109,21 @@
 
 <script>
     $(document).ready(function() {
-        $('#daftar').DataTable({
-            order: [
-                [8, 'desc']
+        var table = $('#viewmenu').removeAttr('width').DataTable({
+            scrollY: false,
+            scrollX: true,
+            scrollCollapse: true,
+            paging: true,
+            "columnDefs": [{
+                "width": "150px",
+                "targets": 4
+            }],
+            'order': [
+                [5, 'desc']
             ],
+            fixedColumns: true
         });
+
 
     });
 </script>

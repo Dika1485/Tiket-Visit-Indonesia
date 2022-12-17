@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Visit Indonesia - Edit Profil</title>
+    <title>Visit Indonesia - Profil</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,7 +50,7 @@
         <div class="black-bg">
         </div>
         <div class="grey-bg">
-            <h2 id="judul-halaman" class="text-white" align="center">Edit Profil</h2>
+            <h2 id="judul-halaman" class="text-white" align="center">Profil</h2>
         </div>
 
     </section><!-- End Hero Section -->

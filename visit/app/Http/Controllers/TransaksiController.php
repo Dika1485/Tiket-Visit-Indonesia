@@ -14,7 +14,7 @@ class TransaksiController extends Controller
             ->join('users', 'users.id', '=', 'transaksis.user_id')->orderBy('transaksis.created_at', 'desc')
             ->join('daftars', 'menus.id', '=', 'daftars.menu_id')->select(['menus.nama as namamenu', 'transaksis.kode as kode', 'users.nama as nama', 'transaksis.schedule as schedule', 'transaksis.jumlah as jumlah', 'transaksis.total as total', 'transaksis.midtrans_id as midtrans_id', 'transaksis.payment_code as payment_code', 'transaksis.metode as metode', 'transaksis.status as status'])->where('daftars.user_id', Auth::user()?->id)->get();
 
-        $itransaksi = $transaksi[0]->count;
-        return view('admintransaksi', ['transaksi' => $transaksi, 'itransaksi' => $itransaksi]);
+
+        return view('admintransaksi', ['transaksi' => $transaksi]);
     }
 }

@@ -14,20 +14,20 @@ class IndexController extends Controller
 
 
         if ($agent->isMobile()) {
-            $wisatas = Menu::where('kategori_id', '3')->limit(1)->get();
-            $makanans = Menu::where('kategori_id', '2')->limit(1)->get();
-            $produks = Menu::where('kategori_id', '1')->limit(1)->get();
+            $wisatas = Menu::where('kategori_id', '3')->where('menus.deleted', '=', 0)->limit(1)->get();
+            $makanans = Menu::where('kategori_id', '2')->where('menus.deleted', '=', 0)->limit(1)->get();
+            $produks = Menu::where('kategori_id', '1')->where('menus.deleted', '=', 0)->limit(1)->get();
             return view('index2', ['wisatas' => $wisatas, 'makanans' => $makanans, 'produks' => $produks]);
         } else {
 
-            $wisatas = Menu::where('kategori_id', '3')->limit(3)->get();
-            $makanans = Menu::where('kategori_id', '2')->limit(3)->get();
-            $produks = Menu::where('kategori_id', '1')->limit(3)->get();
+            $wisatas = Menu::where('kategori_id', '3')->where('menus.deleted', '=', 0)->limit(3)->get();
+            $makanans = Menu::where('kategori_id', '2')->where('menus.deleted', '=', 0)->limit(3)->get();
+            $produks = Menu::where('kategori_id', '1')->where('menus.deleted', '=', 0)->limit(3)->get();
             return view('index2', ['wisatas' => $wisatas, 'makanans' => $makanans, 'produks' => $produks]);
         }
     }
     public function logout()
     {
-        return view('logout');
+        return redirect('/index');
     }
 }

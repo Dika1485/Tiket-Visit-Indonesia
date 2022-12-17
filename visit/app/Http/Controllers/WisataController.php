@@ -14,19 +14,20 @@ class WisataController extends Controller
 {
     public function index(Request $request)
     {
-        $wisatas = Menu::where('kategori_id', '4')->get();
-        $iw = $wisatas->count();
-        $produks = Menu::where('kategori_id', '3')->get();
-        $ip = $produks->count();
-        $makanans = Menu::where('kategori_id', '2')->get();
-        $im = $makanans->count();
+        $wisatas = Menu::where('kategori_id', '4')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0')->get();
+        $iw = Menu::where('kategori_id', '4')->count();
+        $produks = Menu::where('kategori_id', '3')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile'], ['media.menu_id'], ['menus.*']) */->where('menus.deleted', '=', '0')->get();
+        $ip = Menu::where('kategori_id', '3')->count();
+        $makanans = Menu::where('kategori_id', '2')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile'], ['media.menu_id'], ['menus.*']) */->where('menus.deleted', '=', '0')->get();
+        $im = Menu::where('kategori_id', '2')->count();
 
         if ($request->kategori == "wisata") {
-            $satu = Daftar::where('menu_id', $request->id_beli)->get();
+            // $satu = Daftar::where('menu_id', $request->id_beli)->get();
             $kategori = $request->kategori;
-            $dua = User::where('id', $satu[0]->user_id)->get();
-            /* $ckey = $dua[0]->clientkey; */
+            // $dua = User::where('id', $satu[0]->user_id)->get();
+            // /* $ckey = $dua[0]->clientkey; */
             $menu = Menu::where('id', $request->id_beli)->get();
+
             $amount = $menu[0]->harga * $request->jumlah_tiket;
 
             $user = Auth::user();
@@ -51,10 +52,10 @@ class WisataController extends Controller
             );
             $snapToken = \Midtrans\Snap::getSnapToken($params);
             if ($kategori == "wisata") {
-                return view('katalog-wisata', ['menu_id' => $request->id_beli, 'schedule' => $request->tanggal, 'number' => $request->jumlah_tiket, /* 'ckey' => $ckey,  */ 'snapToken' => $snapToken, 'wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
+                return view('aakkkatalog-wisata', ['menu_id' => $request->id_beli, 'schedule' => $request->tanggal, 'number' => $request->jumlah_tiket, /* 'ckey' => $ckey,  */ 'snapToken' => $snapToken, 'wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
             }
         } else {
-            return view('katalog-wisata', ['wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
+            return view('aakkkatalog-wisata', ['wisatas' => $wisatas, 'iw' => $iw, 'produks' => $produks, 'ip' => $ip, 'makanans' => $makanans, 'im' => $im]);
         }
     }
 

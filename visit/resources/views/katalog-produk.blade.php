@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Visit Indonesia - Katalog Produk</title>
+    <title>Visit Indonesia - Katalog Wisata</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -37,9 +38,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
     @if (isset($snapToken))
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
         <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
             data-client-key="{{ env('CLIENT_KEY') }}"></script>
         <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
@@ -103,16 +104,21 @@
                 <div class="vr" style="width:2px ;height: 100%;color: black;margin: 12px 12px 0px 20px;">
                 </div>
             </div>
+
             {{-- Box katalog --}}
             <div class="col d-flex">
                 <div class="container px-6 text-center">
                     <div class="row gx-5 mb-3">
                         {{-- persatu awal --}}
-                        @forelse ($produks as $produk)
+                        @for ($i = 0; $i < $produks->count();)
+                            @php
+                                
+                                $j = $i + 1;
+                                $produk = $produks[$i];
+                            @endphp
                             <div class="col katalog-content">
                                 <div class="box-katalog"
-                                    style="background-image: url('img/curug.jpg'); background-size: cover;">
-
+                                    style="background-image: url('images/{{ $produk->namefile }}'); background-size: cover;">
                                     <div class="row" style="margin-top: 120px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $produk->nama }}</h4>
@@ -121,7 +127,7 @@
                                         <div class="col" style="margin: auto;" align="right">
                                             @auth
                                                 <button class="btn btn-primary beli" data-bs-toggle="modal"
-                                                    data-bs-target="#beli{{ $produk->id }}">Beli</button>
+                                                    data-bs-target="#beli{{ $produk->menu_id }}">Beli</button>
                                             @endauth
                                             @guest
                                                 <button class="btn btn-primary beli" data-bs-toggle="modal"
@@ -131,7 +137,7 @@
                                     </div>
                                     <!-- Modal Beli -->
                                     @auth
-                                        <div class="modal" id="beli{{ $produk->id }}" tabindex="-1">
+                                        <div class="modal" id="beli{{ $produk->menu_id }}" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content ">
                                                     <div class="modal-header">
@@ -148,32 +154,59 @@
                                                                 <div id="carouselBasicExample"
                                                                     class="carousel slide carousel-fade"
                                                                     data-bs-ride="carousel">
-
-
                                                                     <!-- Inner -->
                                                                     <div class="carousel-inner" style="padding: 0;">
                                                                         <!-- Single item -->
+
                                                                         <div class="carousel-item active">
-                                                                            <img src="img/goa-lawa.jpg"
-                                                                                class="d-block w-100"
-                                                                                alt="Sunset Over the City" />
+                                                                            <img src="images/{{ $produk->namefile }}"
+                                                                                class="d-block w-100" alt=""
+                                                                                style="width: 200px; height:200px;object-fit:fill;" />
                                                                         </div>
-
+                                                                        @if ($produk->menu_id != null)
+                                                                            @for (; $j < $produks->count(); $j++)
+                                                                                @php
+                                                                                    if ($produks[$j]->menu_id != $produk->menu_id) {
+                                                                                        break;
+                                                                                    }
+                                                                                    
+                                                                                @endphp
+                                                                                <div class="carousel-item">
+                                                                                    <img src="images/{{ $produks[$j]->namefile }}"
+                                                                                        class="d-block w-100"
+                                                                                        alt=""
+                                                                                        style="width: 200px; height:200px;object-fit:fill;" />
+                                                                                </div>
+                                                                            @endfor
+                                                                        @endif
                                                                     </div>
-                                                                    <!-- Inner -->
-
-
+                                                                    <button class="carousel-control-prev" type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide="prev" style="margin: 0px;">
+                                                                        <span class="carousel-control-prev-icon"
+                                                                            aria-hidden="true"></span>
+                                                                        <span class="visually-hidden">Previous</span>
+                                                                    </button>
+                                                                    <button class="carousel-control-next" type="button"
+                                                                        data-bs-target="#carouselBasicExample"
+                                                                        data-bs-slide="next" style="margin: 0px;">
+                                                                        <span class="carousel-control-next-icon"
+                                                                            aria-hidden="true"></span>
+                                                                        <span class="visually-hidden">Next</span>
+                                                                    </button>
                                                                 </div>
                                                                 <!-- Carousel wrapper -->
+                                                                <!-- <img src="assets/img/curug.jpg" alt="" style="border-radius: 12px;"> -->
                                                             </div>
                                                         </div>
+
                                                         <div class="row">
                                                             <div class="col" style="margin: auto;">
                                                                 <div class="row">
                                                                     <b>Deskripsi</b>
                                                                 </div>
                                                                 <div class="row row-lg-6 overflow-auto"
-                                                                    style="height: 150px;text-align: justify;margin-bottom: 5px;">
+                                                                    style="height: 70px;text-align: justify;margin-bottom: 5px;">
 
                                                                     <p>{{ $produk->desc }}</p>
                                                                 </div>
@@ -182,7 +215,7 @@
                                                                         action="{{ url('/beliproduk') }}">
                                                                         @csrf
                                                                         <input type="hidden" name="id_beli"
-                                                                            value="{{ $produk->id }}">
+                                                                            value="{{ $produk->menu_id }}">
                                                                         <input type="hidden" name="kategori"
                                                                             value="produk">
                                                                         <input type="hidden" name="user"
@@ -193,6 +226,7 @@
                                                                                     <td align="left" colspan="2">
                                                                                         {{ "Harga : Rp $produk->harga" . '/tiket' }}
                                                                                     </td>
+
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td class="align-middle"
@@ -200,8 +234,10 @@
                                                                                         align="left">
                                                                                         Tanggal: </td>
                                                                                     <td class="align-middle date"
-                                                                                        align="left"><input
-                                                                                            type="date" name="tanggal">
+                                                                                        align="left">
+                                                                                        <input type="date"
+                                                                                            value="" name="tanggal"
+                                                                                            class="">
                                                                                     </td>
                                                                                     <td class="align-middle"
                                                                                         style="width: 0px;">
@@ -237,7 +273,7 @@
                                                                                 <tr>
                                                                                     <td class="align-middle"
                                                                                         colspan="4">
-                                                                                        <button
+                                                                                        <button id="pay-button"
                                                                                             class="btn btn-primary beli"
                                                                                             data-bs-toggle="modal"
                                                                                             data-bs-target="#beli"
@@ -262,8 +298,11 @@
                                     <!-- End Modal Beli -->
                                 </div>
                             </div>
-                        @empty
-                        @endforelse
+                            @php
+                                $i = $j;
+                            @endphp
+                        @endfor
+
                         {{-- End Perulangan --}}
 
                     </div>
@@ -273,7 +312,8 @@
             {{-- End Box Katalog --}}
         </div>
     </div>
-    {{-- Modal Midtrans --}}
+    {{-- Modal Midtrans
+     --}}
     @if (isset($snapToken))
         <form id="submit_form" action="{{ url('/afterpayproduk') }}" method="POST">
             @csrf
@@ -291,20 +331,20 @@
             window.snap.pay('{{ $snapToken }}', {
                 onSuccess: function(result) {
                     /* You may add your own implementation here */
-                    alert("payment success!");
-                    console.log(result);
+                    alert('transaksi berhasil');
+
                     send_response_to_form(result);
                 },
                 onPending: function(result) {
                     /* You may add your own implementation here */
                     alert("wating your payment!");
-                    console.log(result);
+
                     send_response_to_form(result);
                 },
                 onError: function(result) {
                     /* You may add your own implementation here */
                     alert("payment failed!");
-                    console.log(result);
+
                     send_response_to_form(result);
                 },
                 onClose: function() {
@@ -319,6 +359,6 @@
             }
         </script>
     @endif
-
 </body>
+
 @include('footer')

@@ -13,7 +13,12 @@ class PesananController extends Controller
     public function index()
     {
         $pesanan = Transaksi::where('user_id', Auth::user()?->id)->join('menus', 'menus.id', '=', 'transaksis.menu_id')->orderBy('transaksis.created_at', 'desc')->get();
-        $ipesanan = $pesanan[0]->count;
-        return view('pesanan', ['pesanan' => $pesanan, 'ipesanan' => $ipesanan]);
+
+
+        // if (isset($pesanan)) {
+        return view('pesanan', ['pesanan' => $pesanan]);
+        // } else {
+        //     return view('pesanan');
+        // }
     }
 }

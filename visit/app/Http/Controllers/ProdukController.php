@@ -14,18 +14,18 @@ class ProdukController extends Controller
 {
     public function index(Request $request)
     {
-        $wisatas = Menu::where('kategori_id', '4')->get();
-        $iw = $wisatas->count();
-        $produks = Menu::where('kategori_id', '3')->get();
-        $ip = $produks->count();
-        $makanans = Menu::where('kategori_id', '2')->get();
-        $im = $makanans->count();
+        $wisatas = Menu::where('kategori_id', '4')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0')->get();
+        $iw = Menu::where('kategori_id', '4')->count();
+        $produks = Menu::where('kategori_id', '3')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile'], ['media.menu_id'], ['menus.*']) */->where('menus.deleted', '=', '0')->get();
+        $ip = Menu::where('kategori_id', '3')->count();
+        $makanans = Menu::where('kategori_id', '2')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile'], ['media.menu_id'], ['menus.*']) */->where('menus.deleted', '=', '0')->get();
+        $im = Menu::where('kategori_id', '2')->count();
 
         if ($request->kategori == "produk") {
             $satu = Daftar::where('menu_id', $request->id_beli)->get();
             $kategori = $request->kategori;
             $dua = User::where('id', $satu[0]->user_id)->get();
-            /*             $ckey = $dua[0]->clientkey; */
+            /* $ckey = $dua[0]->clientkey; */
             $menu = Menu::where('id', $request->id_beli)->get();
             $amount = $menu[0]->harga * $request->jumlah_tiket;
 

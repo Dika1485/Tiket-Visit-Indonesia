@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $profil = User::where('id', Auth::user()?->id)->get();
+
         return view('profil');
     }
     public function edit()
@@ -32,7 +32,7 @@ class UserController extends Controller
         $user->kecamatan = $request->kecamatan;
         $user->kota = $request->kota;
         $user->provinsi = $request->provinsi;
-        $user->update();
-        return view('profil');
+        $user->save();
+        return redirect('/profil');
     }
 }

@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota')->nullable();
             $table->string('provinsi')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->boolean('deleted');
             $table->timestamps();
         });
     }

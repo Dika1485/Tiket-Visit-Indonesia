@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Visit Indonesia - Edit Profil</title>
+    <title>Visit Indonesia - Tambah Menu</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -73,81 +73,106 @@
 
                                     <!-- formubah data siswa -->
                                     <form class="needs-validation" action="" method="post"
-                                        enctype="multipart/form-data" novalidate>
+                                        enctype="multipart/form-data">
+                                        @csrf
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group col-md-12">
                                                     <label>Nama</label>
-                                                    <input type="text" class="form-control" name="username"
-                                                        autocomplete="off" placeholder="Nama Produk/Wisata" required>
+                                                    <input type="text" class="form-control" name="nama"
+                                                        autocomplete="off" placeholder="Nama Menu" required>
                                                     <div class="invalid-feedback">Nama tidak boleh kosong.</div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <label>Harga</label>
-                                                    <input type="text" class="form-control" name="nama"
-                                                        autocomplete="off" placeholder="Harga " required>
-                                                    <div class="invalid-feedback">Username tidak boleh kosong.
+                                                    <input type="number" class="form-control" name="harga"
+                                                        autocomplete="off" required>
+                                                    <div class="invalid-feedback">Harga tidak boleh kosong.
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
-                                                    <label>Email</label>
-                                                    <input type="email" class="form-control" name="email1"
-                                                        autocomplete="off" value="" required>
-                                                    <div class="invalid-feedback">Email tidak boleh kosong.
+                                                    <label>Deskripsi</label>
+                                                    <textarea name="desc" id="deskripsi" cols="30" rows="10"></textarea>
+                                                    <div class="invalid-feedback">Deskripsi tidak boleh kosong.
                                                     </div>
                                                 </div>
 
 
                                                 <div class="form-group">
-                                                    <label>Kategori</label>
-                                                    <select class="form-control" name="jenis_bank" required>
+                                                    <label>Kategori Menu</label>
+                                                    <select class="form-control" name="kategori_id" required>
                                                         <option value="">
                                                         </option>
-                                                        <option value="wisata">Wisata</option>
-                                                        <option value="produk">Produk</option>
-                                                        <option value="makanan">Makanan</option>
+
+                                                        <option value="{{ $wisata[0]->id }}">Wisata
+                                                        </option>
+                                                        <option value="{{ $produk[0]->id }}">Produk
+                                                        </option>
+                                                        <option value="{{ $makanan[0]->id }}">Makanan
+                                                        </option>
+
+
                                                     </select>
-                                                    <div class="invalid-feedback">Jenis pembayaran harus diisi.
+                                                    <div class="invalid-feedback">Kategori harus diisi.
                                                     </div>
                                                 </div>
+
                                             </div>
 
                                             <div class="col">
-                                                <div class="form-group col-md-12">
-                                                    <label>Deskripsi</label>
-                                                    <textarea class="form-control" rows="2" name="deskripsi" autocomplete="off" placeholder="Deskripsi singkat produk"
-                                                        required></textarea>
-                                                    <div class="invalid-feedback">Deskripsi lahir tidak boleh
-                                                        kosong.</div>
-                                                </div>
 
                                                 <div class="form-group col-md-12">
-                                                    <label>No. Rekening</label>
-                                                    <input type="text" class="form-control"name="no_rekening"
-                                                        maxlength="13" autocomplete="off" value="" required>
+                                                    <label>Provinsi</label>
+                                                    <input type="text" class="form-control" name="provinsi"
+                                                        autocomplete="off" required>
+
                                                 </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Kota</label>
+                                                    <input type="text" class="form-control" name="kota"
+                                                        autocomplete="off" required>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Kecamatan</label>
+                                                    <input type="text" class="form-control" name="kecamatan"
+                                                        autocomplete="off" required>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Desa</label>
+                                                    <input type="text" class="form-control" name="desa"
+                                                        autocomplete="off" required>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Jalan</label>
+                                                    <input type="text" class="form-control" name="jalan"
+                                                        autocomplete="off" required>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Gambar</label>
+                                                    <input type="file" class="form-control" name="filename[]"
+                                                        required multiple>
+                                                </div>
+
+
                                             </div>
 
-                                            <div class="col">
-                                                <div class="form-group col-md-12">
-                                                    <label>Foto Produk/Wisata</label>
-                                                    <input type="file" class="form-control-file mb-3"
-                                                        id="foto" name="foto" autocomplete="off"
-                                                        value="">
 
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="my-md-4 pt-md-1 border-top"> </div>
 
                                         <div class="form-group col-md-12 right">
-                                            <a href=""><input type="submit" class="btn btn-success"
-                                                    name="simpan" value="Simpan"></a><br><br>
+                                            <input type="submit" class="btn btn-success" name="simpan"
+                                                value="Simpan"><br><br>
                                         </div>
                                     </form>
+
+
 
                                 </div>
                             </div>

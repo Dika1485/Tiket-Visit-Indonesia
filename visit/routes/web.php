@@ -11,6 +11,7 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PembayaranController;
 
 /*
@@ -26,11 +27,12 @@ use App\Http\Controllers\PembayaranController;
 
 
 Route::get('/index', [IndexController::class, 'index']);
-Route::get('/logout', [IndexController::class, 'index']);
+Route::get('/logout', [IndexController::class, 'logout']);
 Route::get('/login', [IndexController::class, 'index']);
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/katalog-makanan', [MakananController::class, 'index']);
 Route::get('/katalog-wisata', [WisataController::class, 'index']);
+Route::get('/kkk', [WisataController::class, 'index']);
 Route::get('/katalog-produk', [ProdukController::class, 'index']);
 Route::get('/katalog-budaya', [BudayaController::class, 'index']);
 Route::get('/pesanan', [PesananController::class, 'index']);
@@ -48,6 +50,12 @@ Route::get('/profil', [UserController::class, 'index']);
 Route::get('/editprofil', [UserController::class, 'edit']);
 Route::post('/editprofil', [UserController::class, 'edit2']);
 Route::get('/daftartransaksi', [TransaksiController::class, 'view']);
+Route::get('/viewmenu', [MenuController::class, 'view']);
+Route::get('/tambahmenu', [MenuController::class, 'viewtambah']);
+Route::post('/tambahmenu', [MenuController::class, 'tambah']);
+Route::get('/editmenu', [MenuController::class, 'viewedit']);
+Route::post('/editmenu', [MenuController::class, 'edit']);
+Route::get('/hapusmenu', [MenuController::class, 'hapus']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

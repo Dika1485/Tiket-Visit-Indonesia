@@ -58,45 +58,48 @@
     <!-- Section Pesanan -->
 
     <div class="container mt-5 mb-5">
+        <div class="">
+            <table id="transaksi" class="display" style="width:100%; margin-bottom:20px;">
 
-        <table id="transaksi" class="display" style="width:100%; margin-bottom:20px;">
-            <thead>
-                <tr border="1">
-                    <th>Nama Pesanan</th>
-
-                    <th>Kode Transaksi</th>
-                    <th>Schedule</th>
-                    <th>Status</th>
-                    <th>Jumlah Tiket</th>
-                    <th>Harga Total</th>
-                    <th style="display: none;">Created</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($pesanan as $pesanan)
-                    <tr>
-                        <td>{{ $pesanan->nama }}</td>
-                        <td>{{ $pesanan->kode }}</td>
-                        <td>{{ $pesanan->schedule }}</td>
-                        <td>
-                            @if ($pesanan->status == 'settlement')
-                                {{ 'Sukses' }}
-                            @endif
-
-                            @if ($pesanan->status == 'pending')
-                                {{ 'Pending' . ' ' }}
-                                <a href="{{ $pesanan->pdf_url }}" target="_blank">( Detail Tagihan )</a>
-                            @endif
-                        </td>
-                        <td>{{ $pesanan->jumlah }}</td>
-                        <td>{{ $pesanan->total }}</td>
-                        <td style="display: none;">{{ $pesanan->created_by }}</td>
-
+                <thead>
+                    <tr border="1">
+                        <th>Nama Pesanan</th>
+                        <th>Kode Transaksi</th>
+                        <th>Schedule</th>
+                        <th>Status</th>
+                        <th>Jumlah Tiket</th>
+                        <th>Harga Total</th>
+                        <th style="display: none;">Created</th>
                     </tr>
-                @empty
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @forelse ($pesanan as $pesanan)
+                        <tr>
+                            <td>{{ $pesanan->nama }}</td>
+                            <td>{{ $pesanan->kode }}</td>
+                            <td>{{ $pesanan->schedule }}</td>
+                            <td>
+                                @if ($pesanan->status == 'settlement')
+                                    {{ 'Sukses' }}
+                                @endif
+
+                                @if ($pesanan->status == 'pending')
+                                    {{ 'Pending' . ' ' }}
+                                    <a href="{{ $pesanan->pdf_url }}" target="_blank">( Detail Tagihan )</a>
+                                @endif
+                            </td>
+                            <td>{{ $pesanan->jumlah }}</td>
+                            <td>{{ $pesanan->total }}</td>
+                            <td style="display: none;">{{ $pesanan->created_by }}</td>
+
+                        </tr>
+                    @empty
+                    @endforelse
+                </tbody>
+
+            </table>
+        </div>
+
     </div>
 
 
@@ -105,11 +108,17 @@
 
     <script>
         $(document).ready(function() {
-            $('#transaksi').DataTable({
+            var table = $('#transaksi').DataTable({
+
+                scrollX: true,
+                scrollCollapse: false,
+                paging: true,
                 order: [
                     [6, 'desc']
                 ],
+                fixedColumns: false
             });
+
 
         });
     </script>

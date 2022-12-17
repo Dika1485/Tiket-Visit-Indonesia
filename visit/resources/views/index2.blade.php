@@ -57,11 +57,11 @@
                     <p data-aos="fade-up" data-aos-delay="100">Nikmati rekreasi bersama orang favoritmu, dan buatlah
                         memori di Purbalingga!</p>
 
-                    <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                    <!--<form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                         data-aos-delay="200">
                         <input type="text" class="form-control" placeholder="Cari destinasi menarik di sekitar anda">
                         <button type="submit" class="btn btn-primary search">Search</button>
-                    </form>
+                    </form>-->
                 </div>
 
 

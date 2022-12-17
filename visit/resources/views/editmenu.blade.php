@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Visit Indonesia - Edit Profil</title>
+    <title>Visit Indonesia - Edit Menu</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,7 +50,7 @@
         <div class="black-bg">
         </div>
         <div class="grey-bg">
-            <h2 id="judul-halaman" class="text-white" align="center">Edit Profil</h2>
+            <h2 id="judul-halaman" class="text-white" align="center">Edit Menu</h2>
         </div>
 
     </section><!-- End Hero Section -->
@@ -73,89 +73,111 @@
 
                                     <!-- formubah data siswa -->
                                     <form class="needs-validation" action="" method="post"
-                                        enctype="multipart/form-data" novalidate>
+                                        enctype="multipart/form-data">
+                                        @csrf
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group col-md-12">
                                                     <label>Nama</label>
-                                                    <input type="text" class="form-control" name="username"
-                                                        autocomplete="off" placeholder="Nama Anda" required>
+                                                    <input type="text" class="form-control" name="nama"
+                                                        autocomplete="off" placeholder="Nama Menu" required
+                                                        value="{{ $menu->nama }}">
                                                     <div class="invalid-feedback">Nama tidak boleh kosong.</div>
                                                 </div>
 
                                                 <div class="col-md-12">
-                                                    <label>Username</label>
-                                                    <input type="text" class="form-control" name="nama"
-                                                        autocomplete="off" value="" required>
-                                                    <div class="invalid-feedback">Username tidak boleh kosong.
+                                                    <label>Harga</label>
+                                                    <input type="number" class="form-control" name="harga"
+                                                        autocomplete="off" required value="{{ $menu->harga }}">
+                                                    <div class="invalid-feedback">Harga tidak boleh kosong.
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
-                                                    <label>Email</label>
-                                                    <input type="email" class="form-control" name="email1"
-                                                        autocomplete="off" value="" required>
-                                                    <div class="invalid-feedback">Email tidak boleh kosong.
+                                                    <label>Deskripsi</label>
+                                                    <textarea name="desc" id="deskripsi" cols="30" rows="10">{{ $menu->desc }}</textarea>
+                                                    <div class="invalid-feedback">Deskripsi tidak boleh kosong.
                                                     </div>
                                                 </div>
 
 
                                                 <div class="form-group">
-                                                    <label>Jenis Bank</label>
-                                                    <select class="form-control" name="jenis_bank" required>
+                                                    <label>Kategori Menu</label>
+                                                    <select class="form-control" name="kategori_id" required>
                                                         <option value="">
                                                         </option>
-                                                        <option value="bri">BRI</option>
-                                                        <option value="bca">BCA
-                                                        <option value="bni">BNI
+
+                                                        <option value="{{ $wisata[0]->id }}"
+                                                            @selected($menu->kategori_id == $wisata[0]->id)>Wisata
                                                         </option>
-                                                        <option value="bankjateng">Bank Jateng</option>
-                                                        <option value="mandiri">Mandiri</option>
+                                                        <option value="{{ $produk[0]->id }}"
+                                                            @selected($menu->kategori_id == $produk[0]->id)>Produk
+                                                        </option>
+                                                        <option value="{{ $makanan[0]->id }}"
+                                                            @selected($menu->kategori_id == $makanan[0]->id)>Makanan
+                                                        </option>
+
+
                                                     </select>
-                                                    <div class="invalid-feedback">Jenis pembayaran harus diisi.
+                                                    <div class="invalid-feedback">Kategori harus diisi.
                                                     </div>
                                                 </div>
+
                                             </div>
 
                                             <div class="col">
-                                                <div class="form-group col-md-12">
-                                                    <label>Alamat</label>
-                                                    <textarea class="form-control" rows="2" name="alamat" autocomplete="off" required></textarea>
-                                                    <div class="invalid-feedback">Alamat lahir tidak boleh
-                                                        kosong.</div>
-                                                </div>
 
                                                 <div class="form-group col-md-12">
-                                                    <label>No. Rekening</label>
-                                                    <input type="text" class="form-control"name="no_rekening"
-                                                        maxlength="13" autocomplete="off" value="" required>
+                                                    <label>Provinsi</label>
+                                                    <input type="text" class="form-control" name="provinsi"
+                                                        maxlength="13" autocomplete="off" value="{{ $menu->provinsi }}"
+                                                        required>
 
                                                 </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Kota</label>
+                                                    <input type="text" class="form-control" name="kota"
+                                                        maxlength="13" autocomplete="off" value="{{ $menu->kota }}"
+                                                        required>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Kecamatan</label>
+                                                    <input type="text" class="form-control" name="kecamatan"
+                                                        maxlength="13" autocomplete="off"
+                                                        value="{{ $menu->kecamatan }}" required>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Desa</label>
+                                                    <input type="text" class="form-control" name="desa"
+                                                        maxlength="13" autocomplete="off" value="{{ $menu->desa }}"
+                                                        required>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Jalan</label>
+                                                    <input type="text" class="form-control" name="jalan"
+                                                        maxlength="13" autocomplete="off"
+                                                        value="{{ $menu->jalan }}" required>
+
+                                                </div>
+
+
                                             </div>
 
-                                            <div class="col">
-                                                <div class="form-group col-md-12">
-                                                    <label>Foto Siswa</label>
-                                                    <input type="file" class="form-control-file mb-3"
-                                                        id="foto" name="foto" autocomplete="off"
-                                                        value="">
-                                                    <div id="imagePreview"><img class="foto-preview"
-                                                            src="foto/" /></div>
 
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="my-md-4 pt-md-1 border-top"> </div>
 
                                         <div class="form-group col-md-12 right">
-                                            <a href=""><input type="submit" class="btn btn-success"
-                                                    name="simpan" value="Simpan"></a><br><br>
-
-                                            <a href="profil"><input type="submit" class="btn btn-danger"
-                                                    name="batal" value="Batal"></a><br><br>
+                                            <input type="submit" class="btn btn-success" name="simpan"
+                                                value="Simpan"><br><br>
                                         </div>
                                     </form>
+
+
 
                                 </div>
                             </div>
