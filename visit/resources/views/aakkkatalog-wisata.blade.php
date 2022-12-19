@@ -136,165 +136,175 @@
                                         </div>
                                     </div>
                                     <!-- Modal Beli -->
-                                    @auth
-                                        <div class="modal" id="beli{{ $wisata->menu_id }}" tabindex="-1">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                <div class="modal-content ">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" style="margin-left: 16px;">
-                                                            {{ $wisata->nama }}
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body" style="padding: 12px;margin-bottom: 20px;">
-                                                        <div class="row" style="height:100%;margin-top: 20px;">
-                                                            <div class="col col-lg-5 align-middle" style="margin: auto;">
-                                                                <!-- Carousel wrapper -->
-                                                                <div id="carouselBasicExample{{ $i }}"
-                                                                    class="carousel slide carousel-fade"
-                                                                    data-bs-ride="carousel">
-                                                                    <!-- Inner -->
-                                                                    <div class="carousel-inner" style="padding: 0;">
-                                                                        <!-- Single item -->
 
-                                                                        <div class="carousel-item active">
-                                                                            <img src="images/{{ $wisata->namefile }}"
-                                                                                class="d-block w-100" alt=""
-                                                                                style="width: 200px; height:200px;object-fit:cover;" />
-                                                                        </div>
-                                                                        @if ($wisata->menu_id != null)
-                                                                            @for (; $j < $wisatas->count(); $j++)
-                                                                                @php
-                                                                                    if ($wisatas[$j]->menu_id != $wisata->menu_id) {
-                                                                                        break;
-                                                                                    }
-                                                                                    
-                                                                                @endphp
-                                                                                <div class="carousel-item">
-                                                                                    <img src="images/{{ $wisatas[$j]->namefile }}"
-                                                                                        class="d-block w-100"
-                                                                                        alt=""
-                                                                                        style="width: 200px; height:200px;object-fit:cover;" />
-                                                                                </div>
-                                                                            @endfor
-                                                                        @endif
+                                    <div class="modal" id="beli{{ $wisata->menu_id }}" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content ">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" style="margin-left: 16px;">
+                                                        {{ $wisata->nama }}
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" style="padding: 12px;margin-bottom: 20px;">
+                                                    <div class="row" style="height:100%;margin-top: 20px;">
+                                                        <div class="col col-lg-5 align-middle" style="margin: auto;">
+                                                            <!-- Carousel wrapper -->
+                                                            <div id="carouselBasicExample{{ $i }}"
+                                                                class="carousel slide carousel-fade"
+                                                                data-bs-ride="carousel">
+                                                                <!-- Inner -->
+                                                                <div class="carousel-inner" style="padding: 0;">
+                                                                    <!-- Single item -->
+
+                                                                    <div class="carousel-item active">
+                                                                        <img src="images/{{ $wisata->namefile }}"
+                                                                            class="d-block w-100" alt=""
+                                                                            style="width: 200px; height:200px;object-fit:cover;" />
                                                                     </div>
-                                                                    <button class="carousel-control-prev" type="button"
-                                                                        data-bs-target="#carouselBasicExample{{ $i }}"
-                                                                        data-bs-slide="prev" style="margin: 0px;">
-                                                                        <span class="carousel-control-prev-icon"
-                                                                            aria-hidden="true"></span>
-                                                                        <span class="visually-hidden">Previous</span>
-                                                                    </button>
-                                                                    <button class="carousel-control-next" type="button"
-                                                                        data-bs-target="#carouselBasicExample{{ $i }}"
-                                                                        data-bs-slide="next" style="margin: 0px;">
-                                                                        <span class="carousel-control-next-icon"
-                                                                            aria-hidden="true"></span>
-                                                                        <span class="visually-hidden">Next</span>
-                                                                    </button>
+                                                                    @if ($wisata->menu_id != null)
+                                                                        @for (; $j < $wisatas->count(); $j++)
+                                                                            @php
+                                                                                if ($wisatas[$j]->menu_id != $wisata->menu_id) {
+                                                                                    break;
+                                                                                }
+                                                                                
+                                                                            @endphp
+                                                                            <div class="carousel-item">
+                                                                                <img src="images/{{ $wisatas[$j]->namefile }}"
+                                                                                    class="d-block w-100"
+                                                                                    alt=""
+                                                                                    style="width: 200px; height:200px;object-fit:cover;" />
+                                                                            </div>
+                                                                        @endfor
+                                                                    @endif
                                                                 </div>
-                                                                <!-- Carousel wrapper -->
-                                                                <!-- <img src="assets/img/curug.jpg" alt="" style="border-radius: 12px;"> -->
+                                                                <button class="carousel-control-prev" type="button"
+                                                                    data-bs-target="#carouselBasicExample{{ $i }}"
+                                                                    data-bs-slide="prev" style="margin: 0px;">
+                                                                    <span class="carousel-control-prev-icon"
+                                                                        aria-hidden="true"></span>
+                                                                    <span class="visually-hidden">Previous</span>
+                                                                </button>
+                                                                <button class="carousel-control-next" type="button"
+                                                                    data-bs-target="#carouselBasicExample{{ $i }}"
+                                                                    data-bs-slide="next" style="margin: 0px;">
+                                                                    <span class="carousel-control-next-icon"
+                                                                        aria-hidden="true"></span>
+                                                                    <span class="visually-hidden">Next</span>
+                                                                </button>
                                                             </div>
+                                                            <!-- Carousel wrapper -->
+                                                            <!-- <img src="assets/img/curug.jpg" alt="" style="border-radius: 12px;"> -->
                                                         </div>
+                                                    </div>
 
-                                                        <div class="row">
-                                                            <div class="col" style="margin: auto;">
-                                                                <div class="row">
-                                                                    <b>Deskripsi</b>
-                                                                </div>
-                                                                <div class="row row-lg-6 overflow-auto"
-                                                                    style="height: 70px;text-align: justify;margin-bottom: 5px;">
+                                                    <div class="row">
+                                                        <div class="col" style="margin: auto;">
+                                                            <div class="row">
+                                                                <b>Deskripsi</b>
+                                                            </div>
+                                                            <div class="row row-lg-6 overflow-auto"
+                                                                style="height: 70px;text-align: justify;margin-bottom: 5px;">
 
-                                                                    <p>{{ $wisata->desc }}</p>
-                                                                </div>
-                                                                <div class="row" style="vertical-align: middle;">
-                                                                    <form method="POST"
-                                                                        action="{{ url('/beliwisata') }}">
-                                                                        @csrf
+                                                                <p>{{ $wisata->desc }}</p>
+                                                            </div>
+                                                            <div class="row" style="vertical-align: middle;">
+                                                                <form method="POST"
+                                                                    action="{{ url('/beliwisata') }}">
+                                                                    @csrf
+                                                                    @auth
                                                                         <input type="hidden" name="id_beli"
                                                                             value="{{ $wisata->menu_id }}">
                                                                         <input type="hidden" name="kategori"
                                                                             value="wisata">
                                                                         <input type="hidden" name="user"
                                                                             value="{{ Auth::user()->id }}">
-                                                                        <table style="width:100%;" cellpadding="8">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="left" colspan="2">
-                                                                                        {{ "Harga : Rp $wisata->harga" . '/tiket' }}
-                                                                                    </td>
+                                                                    @endauth
 
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="align-middle"
-                                                                                        style="width: 0px;"
-                                                                                        align="left">
-                                                                                        Tanggal: </td>
-                                                                                    <td class="align-middle date"
-                                                                                        align="left">
-                                                                                        <input type="date"
-                                                                                            value="" name="tanggal"
-                                                                                            class="">
-                                                                                    </td>
-                                                                                    <td class="align-middle"
-                                                                                        style="width: 0px;">
-                                                                                        Tiket: </td>
-                                                                                    <td class="align-middle"
-                                                                                        style="width: 100px;">
-                                                                                        <select name="jumlah_tiket"
-                                                                                            id="jumlah_tiket">
-                                                                                            <option value="1">1
-                                                                                            </option>
-                                                                                            <option value="2">2
-                                                                                            </option>
-                                                                                            <option value="3">3
-                                                                                            </option>
-                                                                                            <option value="4">4
-                                                                                            </option>
-                                                                                            <option value="5">5
-                                                                                            </option>
-                                                                                            <option value="6">6
-                                                                                            </option>
-                                                                                            <option value="7">7
-                                                                                            </option>
-                                                                                            <option value="8">8
-                                                                                            </option>
-                                                                                            <option value="9">9
-                                                                                            </option>
-                                                                                            <option value="10">10
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </td>
+                                                                    <table style="width:100%;" cellpadding="8">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left" colspan="2">
+                                                                                    {{ "Harga : Rp $wisata->harga" . '/tiket' }}
+                                                                                </td>
 
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="align-middle"
-                                                                                        colspan="4">
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="align-middle"
+                                                                                    style="width: 0px;"
+                                                                                    align="left">
+                                                                                    Tanggal: </td>
+                                                                                <td class="align-middle date"
+                                                                                    align="left">
+                                                                                    <input type="date"
+                                                                                        value="" name="tanggal"
+                                                                                        class="">
+                                                                                </td>
+                                                                                <td class="align-middle"
+                                                                                    style="width: 0px;">
+                                                                                    Tiket: </td>
+                                                                                <td class="align-middle"
+                                                                                    style="width: 100px;">
+                                                                                    <select name="jumlah_tiket"
+                                                                                        id="jumlah_tiket">
+                                                                                        <option value="1">1
+                                                                                        </option>
+                                                                                        <option value="2">2
+                                                                                        </option>
+                                                                                        <option value="3">3
+                                                                                        </option>
+                                                                                        <option value="4">4
+                                                                                        </option>
+                                                                                        <option value="5">5
+                                                                                        </option>
+                                                                                        <option value="6">6
+                                                                                        </option>
+                                                                                        <option value="7">7
+                                                                                        </option>
+                                                                                        <option value="8">8
+                                                                                        </option>
+                                                                                        <option value="9">9
+                                                                                        </option>
+                                                                                        <option value="10">10
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="align-middle"
+                                                                                    colspan="4">
+                                                                                    @auth
                                                                                         <button id="pay-button"
                                                                                             class="btn btn-primary beli"
                                                                                             data-bs-toggle="modal"
                                                                                             data-bs-target="#beli"
                                                                                             type="submit">Beli</button>
-                                                                                    </td>
-                                                                                </tr>
 
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </form>
+                                                                                    @endauth
+                                                                                    @guest
 
-                                                                </div>
+                                                                                    @endguest
+
+                                                                                </td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </form>
+
                                                             </div>
                                                         </div>
-
-
                                                     </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
-                                    @endauth
+                                    </div>
+
                                     <!-- End Modal Beli -->
                                 </div>
                             </div>
