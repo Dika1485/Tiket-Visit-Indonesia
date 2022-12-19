@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2022 at 08:46 PM
+-- Generation Time: Dec 19, 2022 at 01:51 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -304,6 +304,13 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('stephenprasetyachrismawan27@gmail.com', '$2y$10$KIRAwuPiDK2X.KOVzTOq/O0jPb3AS3HmqyEDtLvD21QZfvhuNccHG', '2022-12-18 21:48:07');
+
 -- --------------------------------------------------------
 
 --
@@ -382,7 +389,8 @@ CREATE TABLE `transaksis` (
 --
 
 INSERT INTO `transaksis` (`id`, `kode`, `midtrans_id`, `payment_code`, `menu_id`, `user_id`, `jumlah`, `total`, `status`, `metode`, `schedule`, `pdf_url`, `created_at`, `updated_at`) VALUES
-(19, '896719618', '7a5ce4cc-2da9-416a-ac2a-a456cc9ce8ca', '93232460724607', 39, 10, 1, 50000, 'settlement', 'cstore', '2022-12-27', 'https://app.sandbox.midtrans.com/snap/v1/transactions/41c6c44c-b60f-4096-8eb7-ade5ce54457e/pdf', '2022-12-17 12:33:28', '2022-12-17 12:33:28');
+(19, '896719618', '7a5ce4cc-2da9-416a-ac2a-a456cc9ce8ca', '93232460724607', 39, 10, 1, 50000, 'settlement', 'cstore', '2022-12-27', 'https://app.sandbox.midtrans.com/snap/v1/transactions/41c6c44c-b60f-4096-8eb7-ade5ce54457e/pdf', '2022-12-17 12:33:28', '2022-12-17 12:33:28'),
+(20, '1161962437', '7a85a2ef-59ad-4ab2-990e-52aac5714a9c', '95958107381073', 39, 19, 1, 50000, 'settlement', 'cstore', '2022-12-12', 'https://app.sandbox.midtrans.com/snap/v1/transactions/e4470beb-089e-4244-9b25-82f75d948e20/pdf', '2022-12-19 05:46:58', '2022-12-19 05:46:58');
 
 -- --------------------------------------------------------
 
@@ -426,7 +434,10 @@ INSERT INTO `users` (`id`, `email1`, `email`, `email_verified_at`, `password`, `
 (7, 'cahya@gmail.com', 'cahya', NULL, '$2y$10$K/0meepORJXmq0CSVoP0g.c7uF2VKA3DkmN6AjasusWgZnrlH9NaC', '', '2001-01-27', 0, 'Angsana', 'Tritihkulon', 'Cilacap Utara', 'Cilacap', 'Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '2022-12-16 07:43:04', '2022-12-16 07:43:04'),
 (8, 'dimas@gmail.com', 'Dimas', NULL, '$2y$10$flRjINrdU.CXJAc3ZETJMOUBLqZ8gGHsFTJb/wVCjaIGjW6j2mW9S', '', '2001-07-21', 0, 'Angsana', 'Tritihkulon', 'Cilacap Utara', 'Cilacap', 'Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '2022-12-16 07:47:17', '2022-12-16 07:47:17'),
 (9, 'erik@gmail.com', 'erik', NULL, '$2y$10$35NUBlphQpzDnh2p6SE.ROi99sOqmnw/MzOA5b3W4ctjSo9W5IUtu', '', '2002-11-25', 0, 'Angsana', 'Tritihkulon', 'Cilacap Utara', 'Cilacap', 'Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '2022-12-16 07:48:49', '2022-12-16 07:48:49'),
-(10, 'gading@gmail.com', 'gading', NULL, '$2y$10$pxVpGQE7IF6hLf8fptnpn.xwv3egvrTJ/Gqi0rR1XpuUefSHak2P2', 'Gading Soedarman', '2004-03-10', 0, 'Angsana', 'Tritihkulon', 'Cilacap Utara', 'Cilacap', 'Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '2022-12-16 07:57:55', '2022-12-16 07:57:55');
+(10, 'gading@gmail.com', 'gading', NULL, '$2y$10$pxVpGQE7IF6hLf8fptnpn.xwv3egvrTJ/Gqi0rR1XpuUefSHak2P2', 'Gading Soedarman', '2004-03-10', 0, 'Angsana', 'Tritihkulon', 'Cilacap Utara', 'Cilacap', 'Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '2022-12-16 07:57:55', '2022-12-16 07:57:55'),
+(11, 'steve123@gmail.com', 'pras', NULL, '$2y$10$.sJYC2GMGC0hBuUG.AhCQutYnd/jEUYWVV.plN8/PYr81Hd4yNOPK', '', '0000-00-00', 0, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '2022-12-18 20:26:19', '2022-12-18 20:26:19'),
+(12, 'akun@gmail.com', '', NULL, '$2y$10$gp6xpzPO3Oy/ZQ.5bLEpbe0qEbBGydqUL036c6ST2HZzMTWAsdGsC', 'akun', '2022-12-12', 0, 'akun', 'akun', 'akun', 'akun', 'akun', NULL, NULL, NULL, NULL, NULL, '2022-12-18 22:33:53', '2022-12-18 22:33:53'),
+(19, 'graham@gmail.com', 'Graham', NULL, '$2y$10$MFqz7Er5GqQLsKMSOSVzEO35pwUz0jF7iYvBOA2DBiQEVs9Kd4XLC', 'Graham', '2022-12-13', 0, 'hbbjbsdj', 'uHAIUBIUB', 'knm. m', 'ubsubasxu', 'uabwcoubwc', NULL, NULL, NULL, NULL, NULL, '2022-12-19 05:42:46', '2022-12-19 05:42:46');
 
 -- --------------------------------------------------------
 
@@ -615,13 +626,13 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `transaksis`
 --
 ALTER TABLE `transaksis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `whochats`
