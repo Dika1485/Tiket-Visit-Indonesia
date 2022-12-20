@@ -14,7 +14,6 @@
                 <ul>
                     <li><a href="index" class="active">Beranda</a></li>
                     <li><a href="katalog-wisata" class="active">Katalog</a></li>
-                    <li><a href="bantuan" class="active">Bantuan</a></li>
                     <li><a class="get-a-quote text-medium text-bold" href="" data-bs-target="#login"
                             data-bs-toggle="modal">Login</a></li>
                 </ul>
