@@ -76,7 +76,7 @@ class MenuController extends Controller
         ]);
         $request->validate([
             'filename' => 'required',
-            'filename.*' => 'mimes:jpg,jpeg,png|max:2000'
+            'filename.*' => 'mimes:jpg,jpeg,png,mp4,gif|max:2000'
         ]);
         if ($request->hasfile('filename')) {
             $files = [];
