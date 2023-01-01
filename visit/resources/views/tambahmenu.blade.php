@@ -40,6 +40,14 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <!-- trix editor -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,9 +102,12 @@
 
                                                 <div class="col-md-12">
                                                     <label>Deskripsi</label>
-                                                    <textarea name="desc" id="deskripsi" cols="30" rows="10"></textarea>
+                                                    {{-- <textarea name="desc" id="deskripsi" cols="30" rows="10"></textarea> --}}
+                                                    <input id="desc" type="hidden" name="desc">
+                                                    <trix-editor input="desc"></trix-editor>
                                                     <div class="invalid-feedback">Deskripsi tidak boleh kosong.
                                                     </div>
+
                                                 </div>
 
 
@@ -153,7 +164,12 @@
                                                         autocomplete="off" required>
                                                 </div>
                                                 <div class="form-group col-md-12">
-                                                    <label>Gambar</label>
+                                                    <label>Thumbnail</label>
+                                                    <input type="file" class="form-control" name="thumb[]"
+                                                        required>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Media Promosi</label>
                                                     <input type="file" class="form-control" name="filename[]"
                                                         required multiple>
                                                 </div>

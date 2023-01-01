@@ -87,6 +87,9 @@
                                     {{ 'Pending' . ' ' }}
                                     <a href="{{ $pesanan->pdf_url }}" target="_blank">( Detail Tagihan )</a>
                                 @endif
+                                @if ($pesanan->status != 'settlement' && $pesanan->status != 'pending')
+                                    {{ 'Cancel or Error' }}
+                                @endif
                             </td>
                             <td>{{ $pesanan->jumlah }}</td>
                             <td>{{ $pesanan->total }}</td>

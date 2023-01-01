@@ -84,3 +84,8 @@
 
 <!-- Template Main JS File -->
 <script src="js/main.js"></script>
+<script>
+    document.addEventListener('trix-file-accept', function(e) {
+        e.preventDefault();
+    });
+</script>

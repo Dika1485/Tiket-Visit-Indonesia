@@ -139,31 +139,14 @@
                                     <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $wisata->nama }}</h5>
-                                        <p class="card-text">{{ Str::limit($wisata->desc, 100) }}</p>
-                                        <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
+                                        <p class="card-text">{{ strip_tags(Str::limit($wisata->desc, 100)) }}</p>
+                                        <a href="/katalog-wisata" id="go-smw" class="btn btn-primary">Wisata
+                                            Lainnya</a>
                                     </div>
                                 </div>
                             @empty
                             @endforelse
 
-                            {{-- <div class="card d-none d-md-block">
-                                <img src="img/curug.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card d-none d-md-block">
-                                <img src="img/sate-blater.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -174,29 +157,12 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $makanan->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($makanan->desc, 100) }}</p>
-                                        <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
+                                        <a href="/katalog-makanan" id="go-smw" class="btn btn-primary">Makanan
+                                            Lainnya</a>
                                     </div>
                                 </div>
                             @empty
                             @endforelse
-                            {{-- <div class="card d-none d-md-block">
-                                <img src="img/sate-blater.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card d-none d-md-block">
-                                <img src="img/curug.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -207,29 +173,12 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $produk->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($produk->desc, 100) }}</p>
-                                        <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
+                                        <a href="/katalog-produk" id="go-smw" class="btn btn-primary">Produk
+                                            Lainnya</a>
                                     </div>
                                 </div>
                             @empty
                             @endforelse
-                            {{-- <div class="card d-none d-md-block">
-                                <img src="img/curug.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card d-none d-md-block">
-                                <img src="img/knalpot.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" id="go-smw" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

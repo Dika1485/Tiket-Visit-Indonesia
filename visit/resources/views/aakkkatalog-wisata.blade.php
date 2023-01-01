@@ -115,16 +115,18 @@
                                 
                                 $j = $i + 1;
                                 $wisata = $wisatas[$i];
+                                
                             @endphp
                             <div class="col katalog-content">
                                 <div class="box-katalog"
-                                    style="background-image: url('images/{{ $wisata->namefile }}'); background-size: cover;">
+                                    style="background-image: url('images/{{ $wisata->thumbnail }}'); background-size: cover;">
                                     <div class="row" style="margin-top: 120px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $wisata->nama }}</h4>
                                             <h5 style="color: white;">{{ $wisata->harga }}</h5>
                                         </div>
                                         <div class="col" style="margin: auto;" align="right">
+
                                             @auth
                                                 <button class="btn btn-primary beli" data-bs-toggle="modal"
                                                     data-bs-target="#beli{{ $wisata->menu_id }}">Beli</button>
@@ -147,21 +149,37 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body" style="padding: 12px;margin-bottom: 20px;">
+                                                <div class="modal-body overflow-auto"
+                                                    style="padding: 12px;margin-bottom: 20px;">
                                                     <div class="row" style="height:100%;margin-top: 20px;">
                                                         <div class="col col-lg-5 align-middle" style="margin: auto;">
                                                             <!-- Carousel wrapper -->
                                                             <div id="carouselBasicExample{{ $i }}"
                                                                 class="carousel slide carousel-fade"
-                                                                data-bs-ride="carousel">
+                                                                {{-- data-bs-ride="carousel" --}}>
                                                                 <!-- Inner -->
                                                                 <div class="carousel-inner" style="padding: 0;">
                                                                     <!-- Single item -->
+                                                                    @php
+                                                                        $ext = pathinfo($wisata->namefile, PATHINFO_EXTENSION);
+                                                                        
+                                                                    @endphp
 
                                                                     <div class="carousel-item active">
-                                                                        <img src="images/{{ $wisata->namefile }}"
-                                                                            class="d-block w-100" alt=""
-                                                                            style="width: 200px; height:200px;object-fit:cover;" />
+                                                                        @if ($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
+                                                                            <img src="images/{{ $wisata->namefile }}"
+                                                                                class="d-block w-100" alt=""
+                                                                                style="width: 200px; height:200px;object-fit:cover;" />
+                                                                        @endif
+                                                                        @if ($ext == 'mp4' || $ext == 'gif' || $ext == 'mkv')
+                                                                            <video
+                                                                                src="images/{{ $wisata->namefile }}"
+                                                                                controls class="d-block w-100"
+                                                                                alt=""
+                                                                                style="object-fit:cover;">
+                                                                            </video>
+                                                                        @endif
+
                                                                     </div>
                                                                     @if ($wisata->menu_id != null)
                                                                         @for (; $j < $wisatas->count(); $j++)
@@ -171,12 +189,29 @@
                                                                                 }
                                                                                 
                                                                             @endphp
-                                                                            <div class="carousel-item">
-                                                                                <img src="images/{{ $wisatas[$j]->namefile }}"
-                                                                                    class="d-block w-100"
-                                                                                    alt=""
-                                                                                    style="width: 200px; height:200px;object-fit:cover;" />
-                                                                            </div>
+                                                                            @php
+                                                                                $ext = pathinfo($wisatas[$j]->namefile, PATHINFO_EXTENSION);
+                                                                                
+                                                                            @endphp
+                                                                            @if ($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
+                                                                                <div class="carousel-item">
+
+                                                                                    <img src="images/{{ $wisatas[$j]->namefile }}"
+                                                                                        class="d-block w-100"
+                                                                                        alt=""
+                                                                                        style="width: 200px; height:200px;object-fit:cover;" />
+                                                                                </div>
+                                                                            @endif
+                                                                            @if ($ext == 'mp4' || $ext == 'gif' || $ext == 'mkv')
+                                                                                <div class="carousel-item">
+                                                                                    <video
+                                                                                        src="images/{{ $wisatas[$j]->namefile }}"
+                                                                                        controls class="d-block w-100"
+                                                                                        alt=""
+                                                                                        style="object-fit:cover;">
+                                                                                    </video>
+                                                                                </div>
+                                                                            @endif
                                                                         @endfor
                                                                     @endif
                                                                 </div>
@@ -199,107 +234,105 @@
                                                             <!-- <img src="assets/img/curug.jpg" alt="" style="border-radius: 12px;"> -->
                                                         </div>
                                                     </div>
+                                                    <div>
+                                                        <div class="row">
+                                                            <b>Deskripsi</b>
+                                                        </div>
+                                                        <div class="row row-lg-6"
+                                                            style="height: 70px;text-align: justify;margin-bottom: 5px;">
 
-                                                    <div class="row">
-                                                        <div class="col" style="margin: auto;">
-                                                            <div class="row">
-                                                                <b>Deskripsi</b>
-                                                            </div>
-                                                            <div class="row row-lg-6 overflow-auto"
-                                                                style="height: 70px;text-align: justify;margin-bottom: 5px;">
-
-                                                                <p>{{ $wisata->desc }}</p>
-                                                            </div>
-                                                            <div class="row" style="vertical-align: middle;">
-                                                                <form method="POST"
-                                                                    action="{{ url('/beliwisata') }}">
-                                                                    @csrf
-                                                                    @auth
-                                                                        <input type="hidden" name="id_beli"
-                                                                            value="{{ $wisata->menu_id }}">
-                                                                        <input type="hidden" name="kategori"
-                                                                            value="wisata">
-                                                                        <input type="hidden" name="user"
-                                                                            value="{{ Auth::user()->id }}">
-                                                                    @endauth
-
-                                                                    <table style="width:100%;" cellpadding="8">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td align="left" colspan="2">
-                                                                                    {{ "Harga : Rp $wisata->harga" . '/tiket' }}
-                                                                                </td>
-
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="align-middle"
-                                                                                    style="width: 0px;"
-                                                                                    align="left">
-                                                                                    Tanggal: </td>
-                                                                                <td class="align-middle date"
-                                                                                    align="left">
-                                                                                    <input type="date"
-                                                                                        value="" name="tanggal"
-                                                                                        class="">
-                                                                                </td>
-                                                                                <td class="align-middle"
-                                                                                    style="width: 0px;">
-                                                                                    Tiket: </td>
-                                                                                <td class="align-middle"
-                                                                                    style="width: 100px;">
-                                                                                    <select name="jumlah_tiket"
-                                                                                        id="jumlah_tiket">
-                                                                                        <option value="1">1
-                                                                                        </option>
-                                                                                        <option value="2">2
-                                                                                        </option>
-                                                                                        <option value="3">3
-                                                                                        </option>
-                                                                                        <option value="4">4
-                                                                                        </option>
-                                                                                        <option value="5">5
-                                                                                        </option>
-                                                                                        <option value="6">6
-                                                                                        </option>
-                                                                                        <option value="7">7
-                                                                                        </option>
-                                                                                        <option value="8">8
-                                                                                        </option>
-                                                                                        <option value="9">9
-                                                                                        </option>
-                                                                                        <option value="10">10
-                                                                                        </option>
-                                                                                    </select>
-                                                                                </td>
-
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="align-middle"
-                                                                                    colspan="4">
-                                                                                    @auth
-                                                                                        <button id="pay-button"
-                                                                                            class="btn btn-primary beli"
-                                                                                            data-bs-toggle="modal"
-                                                                                            data-bs-target="#beli"
-                                                                                            type="submit">Beli</button>
-
-                                                                                    @endauth
-                                                                                    @guest
-
-                                                                                    @endguest
-
-                                                                                </td>
-                                                                            </tr>
-
-                                                                        </tbody>
-                                                                    </table>
-                                                                </form>
-
-                                                            </div>
+                                                            <p>{!! $wisata->desc !!}</p>
                                                         </div>
                                                     </div>
 
 
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col" style="margin: auto;">
+
+                                                        <div class="row" style="vertical-align: middle;">
+                                                            <form method="POST" action="{{ url('/beliwisata') }}">
+                                                                @csrf
+                                                                @auth
+                                                                    <input type="hidden" name="id_beli"
+                                                                        value="{{ $wisata->menu_id }}">
+                                                                    <input type="hidden" name="kategori" value="wisata">
+                                                                    <input type="hidden" name="user"
+                                                                        value="{{ Auth::user()->id }}">
+                                                                @endauth
+
+                                                                <table style="width:100%;" cellpadding="8">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="left" colspan="2">
+                                                                                {{ "Harga : Rp $wisata->harga" . '/tiket' }}
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="align-middle"
+                                                                                style="width: 0px;" align="left">
+                                                                                Tanggal: </td>
+                                                                            <td class="align-middle date"
+                                                                                align="left">
+                                                                                <input type="date" value=""
+                                                                                    name="tanggal" class="">
+                                                                            </td>
+                                                                            <td class="align-middle"
+                                                                                style="width: 0px;">
+                                                                                Tiket: </td>
+                                                                            <td class="align-middle"
+                                                                                style="width: 100px;">
+                                                                                <select name="jumlah_tiket"
+                                                                                    id="jumlah_tiket">
+                                                                                    <option value="1">1
+                                                                                    </option>
+                                                                                    <option value="2">2
+                                                                                    </option>
+                                                                                    <option value="3">3
+                                                                                    </option>
+                                                                                    <option value="4">4
+                                                                                    </option>
+                                                                                    <option value="5">5
+                                                                                    </option>
+                                                                                    <option value="6">6
+                                                                                    </option>
+                                                                                    <option value="7">7
+                                                                                    </option>
+                                                                                    <option value="8">8
+                                                                                    </option>
+                                                                                    <option value="9">9
+                                                                                    </option>
+                                                                                    <option value="10">10
+                                                                                    </option>
+                                                                                </select>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="align-middle" colspan="4">
+                                                                                @auth
+                                                                                    <button id="pay-button"
+                                                                                        class="btn btn-primary beli"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-bs-target="#beli"
+                                                                                        type="submit">Beli</button>
+
+                                                                                @endauth
+                                                                                @guest
+
+                                                                                @endguest
+
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

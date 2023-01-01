@@ -77,8 +77,13 @@
                     <tr>
                         <td>{{ $menu->nama }}</td>
                         <td>{{ $menu->harga }}</td>
-                        <td>{{ Str::limit($menu->desc, 100) }}</td>
-                        <td>{{ $menu->kota }}</td>
+                        <td>{{ strip_tags(Str::limit($menu->desc, 100)) }}</td>
+                        <td>
+
+                            {{ $menu->kota }}
+
+
+                        </td>
                         <td>
                             <div align="center">
                                 <a href="editmenu?id={{ $menu->id }}"><button class="btn btn-success"

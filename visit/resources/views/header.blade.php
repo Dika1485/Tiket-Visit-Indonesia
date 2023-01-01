@@ -36,7 +36,7 @@
                 <ul>
                     <li><a href="index" class="active">Beranda</a></li>
                     <li><a href="katalog-wisata" class="active">Katalog</a></li>
-                    <li><a href="bantuan" class="active">Bantuan</a></li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true"

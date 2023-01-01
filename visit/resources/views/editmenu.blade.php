@@ -40,6 +40,14 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <!-- trix editor -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -95,7 +103,9 @@
 
                                                 <div class="col-md-12">
                                                     <label>Deskripsi</label>
-                                                    <textarea name="desc" id="deskripsi" cols="30" rows="10">{{ $menu->desc }}</textarea>
+                                                    <input id="desc" type="hidden" name="desc"
+                                                        value="{{ $menu->desc }}">
+                                                    <trix-editor input="desc"></trix-editor>
                                                     <div class="invalid-feedback">Deskripsi tidak boleh kosong.
                                                     </div>
                                                 </div>

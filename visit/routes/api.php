@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\PesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/payment-handler', [ApiController::class, 'payment_handler']);
+Route::post('/paymenthandling', [ApiController::class, 'payment_handler']);
+Route::post('/pesanan', [PesananController::class, 'post']);
+Route::get('/pesanan', [PesananController::class, 'index']);
