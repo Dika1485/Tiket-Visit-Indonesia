@@ -109,6 +109,10 @@
                                                     <div class="invalid-feedback">Deskripsi tidak boleh kosong.
                                                     </div>
                                                 </div>
+                                                <div class="col-md-12">
+                                                    <label>Kode HTML tambahan</label>
+                                                    <textarea name="add_code" id="add_code" cols="30" rows="10">{!! $menu->add_code !!}</textarea>
+                                                </div>
 
 
                                                 <div class="form-group">
@@ -140,8 +144,8 @@
                                                 <div class="form-group col-md-12">
                                                     <label>Provinsi</label>
                                                     <input type="text" class="form-control" name="provinsi"
-                                                        maxlength="13" autocomplete="off" value="{{ $menu->provinsi }}"
-                                                        required>
+                                                        maxlength="13" autocomplete="off"
+                                                        value="{{ $menu->provinsi }}" required>
 
                                                 </div>
                                                 <div class="form-group col-md-12">

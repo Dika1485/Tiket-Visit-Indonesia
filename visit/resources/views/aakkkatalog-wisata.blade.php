@@ -52,6 +52,7 @@
 <body>
 
     @include('header')
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero2">
         <div class="black-bg">
@@ -272,6 +273,15 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="align-middle"
+                                                                                style="width: 0px;" align="left"
+                                                                                colspan="4">
+                                                                                {!! $wisata->add_code !!}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+
+
+                                                                            <td class="align-middle"
                                                                                 style="width: 0px;" align="left">
                                                                                 Tanggal: </td>
                                                                             <td class="align-middle date"
@@ -358,7 +368,7 @@
     {{-- Modal Midtrans
      --}}
     @if (isset($snapToken))
-        <form id="submit_form" action="{{ url('/afterpaywisata') }}" method="POST">
+        <form id="submit_form" action="{{ url('/afterpaywis ata') }}" method="POST">
             @csrf
             <input type="hidden" name="json" id="json_callback">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

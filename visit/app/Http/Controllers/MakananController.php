@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class WisataController extends Controller
+class MakananController extends Controller
 {
+
     public function index(Request $request)
     {
         $wisatas = Menu::where('kategori_id', '4')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0')->get();

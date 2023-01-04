@@ -44,8 +44,10 @@ Route::get('/belimakanan', [MakananController::class, 'index']);
 Route::post('/beliwisata', [WisataController::class, 'index']);
 Route::get('/beliwisata', [WisataController::class, 'index']);
 Route::get('/pesanan', [PesananController::class, 'index']);
+Route::get('/cari-katalog', [MenuController::class, 'cari']);
+Route::post('/belikatalog', [MenuController::class, 'cari']);
+Route::get('/alert', [WisataController::class, 'alert']);
 //Route::get('/api/pesanan', [IndexController::class, 'index']);
-
 
 Route::post('/afterpaywisata', [WisataController::class, 'payment_post']);
 Route::post('/afterpaymakanan', [MakananController::class, 'payment_post']);

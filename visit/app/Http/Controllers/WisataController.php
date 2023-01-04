@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class WisataController extends Controller
 {
+    public function alert()
+    {
+        return view('alert');
+    }
     public function index(Request $request)
     {
         $wisatas = Menu::where('kategori_id', '4')->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0')->get();
@@ -35,11 +39,19 @@ class WisataController extends Controller
             // die();
             $order_id = rand();
             $order = new Transaksi();
+            if ($request->keterangan) {
+                $order->keterangan = $request->keterangan;
+                if ($request->keterangan == "ya_punya_penyakit_diatass") {
+                    return view('alert', ['warning' => 1]);
+                }
+            }
             $order->kode = $order_id;
             $order->user_id = $user_id;
             $order->menu_id = $request->id_beli;
             $order->schedule = $request->tanggal;
             $order->jumlah = $request->jumlah_tiket;
+
+
             $order->total = $amount;
             $order->save();
             \Midtrans\Config::$serverKey = env('SERVER_KEY');
