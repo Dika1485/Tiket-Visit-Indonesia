@@ -58,7 +58,7 @@
         <div class="black-bg">
         </div>
         <div class="grey-bg">
-            <h2 id="judul-halaman" class="text-white" align="center">Katalog</h2>
+            <h2 id="judul-halaman" class="text-white" align="center">Hasil Pencarian</h2>
         </div>
 
     </section><!-- End Hero Section -->
@@ -882,7 +882,7 @@
     {{-- Modal Midtrans
      --}}
     @if (isset($snapToken))
-        <form id="submit_form" action="{{ url('/afterpaywis ata') }}" method="POST">
+        <form id="submit_form" action="{{ url('/afterpaywisata') }}" method="POST">
             @csrf
             <input type="hidden" name="json" id="json_callback">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

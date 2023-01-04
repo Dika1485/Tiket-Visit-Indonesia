@@ -22,7 +22,7 @@ class MenuController extends Controller
                 ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
         });
         $wisatas = $wisatas1->get();
-        $iw = Menu::where('kategori_id', 4)->count();
+        $iw = Menu::where('kategori_id', 4)->where('menus.deleted', '=', '0')->count();
 
         $produks = Menu::where('kategori_id', 3)->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0');
         $produks1 = $produks->where(function ($query) use ($request) {
@@ -31,7 +31,7 @@ class MenuController extends Controller
         });
 
         $produks = $produks1->get();
-        $ip = Menu::where('kategori_id', 3)->count();
+        $ip = Menu::where('kategori_id', 3)->where('menus.deleted', '=', '0')->count();
 
         $makanans = Menu::where('kategori_id', 2)->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0');
         $makanans1 = $makanans->where(function ($query) use ($request) {
@@ -39,7 +39,7 @@ class MenuController extends Controller
                 ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
         });
         $makanans = $makanans1->get();
-        $im = Menu::where('kategori_id', 2)->count();
+        $im = Menu::where('kategori_id', 2)->where('menus.deleted', '=', '0')->count();
 
         if ($request->kategori == "a") {
             // $satu = Daftar::where('menu_id', $request->id_beli)->get();
