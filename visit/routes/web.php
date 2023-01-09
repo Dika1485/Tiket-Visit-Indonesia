@@ -13,6 +13,7 @@ use App\Http\Controllers\PesananController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\PassgenController;
 use App\Http\Controllers\PembayaranController;
 
 /*
@@ -47,6 +48,7 @@ Route::get('/pesanan', [PesananController::class, 'index']);
 Route::get('/cari-katalog', [MenuController::class, 'cari']);
 Route::post('/belikatalog', [MenuController::class, 'cari']);
 Route::get('/alert', [WisataController::class, 'alert']);
+Route::get('/huhayes/visitindonesia/encrypt/pg/pg/pg', [PassgenController::class, 'index']);
 //Route::get('/api/pesanan', [IndexController::class, 'index']);
 
 Route::post('/afterpaywisata', [WisataController::class, 'payment_post']);

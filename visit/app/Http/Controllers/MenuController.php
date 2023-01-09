@@ -21,25 +21,40 @@ class MenuController extends Controller
             $query->where('nama', 'like', '%' . $request->key . '%')
                 ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
         });
+        $iw = Menu::where('kategori_id', 4)->where('menus.deleted', '=', '0')->where(function ($query) use ($request) {
+
+            $query->where('nama', 'like', '%' . $request->key . '%')
+                ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
+        })->count();
         $wisatas = $wisatas1->get();
-        $iw = Menu::where('kategori_id', 4)->where('menus.deleted', '=', '0')->count();
 
         $produks = Menu::where('kategori_id', 3)->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0');
         $produks1 = $produks->where(function ($query) use ($request) {
             $query->where('nama', 'like', '%' . $request->key . '%')
                 ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
         });
+        $ip =
+            Menu::where('kategori_id', 3)->where('menus.deleted', '=', '0')->where(function ($query) use ($request) {
 
+                $query->where('nama', 'like', '%' . $request->key . '%')
+                    ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
+            })->count();
         $produks = $produks1->get();
-        $ip = Menu::where('kategori_id', 3)->where('menus.deleted', '=', '0')->count();
+
 
         $makanans = Menu::where('kategori_id', 2)->leftJoin('media', 'media.menu_id', '=', 'menus.id')/* ->select(['media.id as mediaid'], ['media.namefile as namefile'], ['media.menu_id as menu_id'], ['menus.id as id']) */->where('menus.deleted', '=', '0');
         $makanans1 = $makanans->where(function ($query) use ($request) {
             $query->where('nama', 'like', '%' . $request->key . '%')
                 ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
         });
+        $im =
+            Menu::where('kategori_id', 2)->where('menus.deleted', '=', '0')->where(function ($query) use ($request) {
+
+                $query->where('nama', 'like', '%' . $request->key . '%')
+                    ->orWhere('harga', 'like', '%' . $request->key . '%')->orWhere('desc', 'like', '%' . $request->key . '%')->orWhere('jalan', 'like', '%' . $request->key . '%')->orWhere('desa', 'like', '%' . $request->key . '%')->orWhere('kecamatan', 'like', '%' . $request->key . '%')->orWhere('kota', 'like', '%' . $request->key . '%')->orWhere('provinsi', 'like', '%' . $request->key . '%');
+            })->count();
         $makanans = $makanans1->get();
-        $im = Menu::where('kategori_id', 2)->where('menus.deleted', '=', '0')->count();
+
 
         if ($request->kategori == "a") {
             // $satu = Daftar::where('menu_id', $request->id_beli)->get();
@@ -74,7 +89,7 @@ class MenuController extends Controller
             // \Midtrans\Config::$serverKey = "SB-Mid-server-Qwe1scZLlz8VpA5caRlRAQq4";
 
 
-            \Midtrans\Config::$isProduction = false;
+            \Midtrans\Config::$isProduction = true;
             \Midtrans\Config::$isSanitized = true;
             \Midtrans\Config::$is3ds = true;
             $params = array(

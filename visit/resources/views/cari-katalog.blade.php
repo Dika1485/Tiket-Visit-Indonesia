@@ -66,45 +66,41 @@
     <!-- Section Katalog -->
     <div class="row white-bg">
         <div class="row g-2">
-            <div class="col col-3 katalog-list">
-                <div class="box-fitur" style="transform: rotate(0);">
-                    <div class="row">
-                        <div class="col col-lg-2" style="padding: 0px;text-align: center;"><i class="bi bi-strava"></i>
-                        </div>
-                        <div class="col">
-                            <h6 style="margin-bottom: 0px;">Wisata</h6>
-                        </div>
-                        <div class="col col-lg-2" style="padding: 0px;text-align: center;">{{ $iw }}</div>
-
+            <div class="box-fitur" style="transform: rotate(0);">
+                <div class="row">
+                    <div class="col col-lg-2" style="padding: 0px;text-align: center;"><i class="bi bi-strava"></i>
                     </div>
-                </div>
-                <div class="box-fitur" style="transform: rotate(0);">
-                    <div class="row">
-                        <div class="col col-lg-2" style="padding: 0px;text-align: center;"><i
-                                class="bi bi-box2-fill"></i></div>
-                        <div class="col">
-                            <h6 style="margin-bottom: 0px;">Produk</h6>
-                        </div>
-                        <div class="col col-lg-2" style="padding: 0px;text-align: center;">{{ $ip }}</div>
-
+                    <div class="col">
+                        <h6 style="margin-bottom: 0px;">Wisata</h6>
                     </div>
-                </div>
-                <div class="box-fitur">
-                    <div class="row" style="transform: rotate(0);">
-                        <div class="col col-lg-2" style="padding: 0px;text-align: center;"><i
-                                class="fas fa-drumstick-bite"></i></div>
-                        <div class="col">
-                            <h6 style="margin-bottom: 0px;">Makanan</h6>
-                        </div>
-                        <div class="col col-lg-2" style="padding: 0px;text-align: center;">{{ $im }}</div>
+                    <div class="col col-lg-2" style="padding: 0px;text-align: center;">{{ $iw }}</div>
 
-                    </div>
                 </div>
             </div>
-            <div class="col-md-auto">
-                <div class="vr" style="width:2px ;height: 100%;color: black;margin: 12px 12px 0px 20px;">
+            <div class="box-fitur" style="transform: rotate(0);">
+                <div class="row">
+                    <div class="col col-lg-2" style="padding: 0px;text-align: center;"><i class="bi bi-box2-fill"></i>
+                    </div>
+                    <div class="col">
+                        <h6 style="margin-bottom: 0px;">Produk</h6>
+                    </div>
+                    <div class="col col-lg-2" style="padding: 0px;text-align: center;">{{ $ip }}</div>
+
                 </div>
             </div>
+            <div class="box-fitur">
+                <div class="row" style="transform: rotate(0);">
+                    <div class="col col-lg-2" style="padding: 0px;text-align: center;"><i
+                            class="fas fa-drumstick-bite"></i></div>
+                    <div class="col">
+                        <h6 style="margin-bottom: 0px;">Makanan</h6>
+                    </div>
+                    <div class="col col-lg-2" style="padding: 0px;text-align: center;">{{ $im }}</div>
+
+                </div>
+            </div>
+
+
             @php
                 // dd($wisatas);
                 // dd($produks);
@@ -125,7 +121,7 @@
                             <div class="col katalog-content">
                                 <div class="box-katalog"
                                     style="background-image: url('images/{{ $wisata->thumbnail }}'); background-size: cover;">
-                                    <div class="row" style="margin-top: 120px;">
+                                    <div class="row" style="margin-top: 90px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $wisata->nama }}</h4>
                                             <h5 style="color: white;">{{ $wisata->harga }}</h5>
@@ -155,7 +151,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body overflow-auto"
-                                                    style="padding: 12px;margin-bottom: 20px;">
+                                                    style="padding-left:30px;padding-right:30px;margin-bottom: 20px;">
                                                     <div class="row" style="height:100%;margin-top: 20px;">
                                                         <div class="col col-lg-5 align-middle" style="margin: auto;">
                                                             <!-- Carousel wrapper -->
@@ -380,7 +376,7 @@
                             <div class="col katalog-content">
                                 <div class="box-katalog"
                                     style="background-image: url('images/{{ $produk->thumbnail }}'); background-size: cover;">
-                                    <div class="row" style="margin-top: 120px;">
+                                    <div class="row" style="margin-top: 90px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $produk->nama }}</h4>
                                             <h5 style="color: white;">{{ $produk->harga }}</h5>
@@ -410,7 +406,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body overflow-auto"
-                                                    style="padding: 12px;margin-bottom: 20px;">
+                                                    style="padding-left:30px;padding-right:30px;margin-bottom: 20px;">
                                                     <div class="row" style="height:100%;margin-top: 20px;">
                                                         <div class="col col-lg-5 align-middle" style="margin: auto;">
                                                             <!-- Carousel wrapper -->
@@ -635,7 +631,7 @@
                             <div class="col katalog-content">
                                 <div class="box-katalog"
                                     style="background-image: url('images/{{ $makanan->thumbnail }}'); background-size: cover;">
-                                    <div class="row" style="margin-top: 120px;">
+                                    <div class="row" style="margin-top: 90px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $makanan->nama }}</h4>
                                             <h5 style="color: white;">{{ $makanan->harga }}</h5>
@@ -665,7 +661,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body overflow-auto"
-                                                    style="padding: 12px;margin-bottom: 20px;">
+                                                    style="padding-left:30px;padding-right:30px;margin-bottom: 20px;">
                                                     <div class="row" style="height:100%;margin-top: 20px;">
                                                         <div class="col col-lg-5 align-middle" style="margin: auto;">
                                                             <!-- Carousel wrapper -->

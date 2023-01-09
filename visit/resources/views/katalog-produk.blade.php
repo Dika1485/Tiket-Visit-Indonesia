@@ -41,8 +41,8 @@
     @if (isset($snapToken))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-        <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-            data-client-key="{{ env('CLIENT_KEY') }}"></script>
+        <script type="text/javascript" src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ env('CLIENT_KEY') }}">
+        </script>
         <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
         <script src="https://code.jquery.com/jquery-3.6.2.min.js"
             integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
@@ -119,7 +119,7 @@
                             <div class="col katalog-content">
                                 <div class="box-katalog"
                                     style="background-image: url('images/{{ $produk->thumbnail }}'); background-size: cover;">
-                                    <div class="row" style="margin-top: 120px;">
+                                    <div class="row" style="margin-top: 90px;">
                                         <div class="col" style="margin: auto;" align="left">
                                             <h4 style="color: white;">{{ $produk->nama }}</h4>
                                             <h5 style="color: white;">{{ $produk->harga }}</h5>
@@ -148,7 +148,7 @@
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body overflow-auto"
-                                                        style="padding: 12px;margin-bottom: 20px;">
+                                                        style="padding-left:30px;padding-right:30px;margin-bottom: 20px;">
                                                         <div class="row" style="height:100%;margin-top: 20px;">
                                                             <div class="col col-lg-5 align-middle" style="margin: auto;">
                                                                 <!-- Carousel wrapper -->
@@ -258,7 +258,11 @@
                                                                     <input type="hidden" name="kategori" value="produk">
                                                                     <input type="hidden" name="user"
                                                                         value="{{ Auth::user()->id }}">
-                                                                    <table style="width:100%;" cellpadding="8">
+                                                                    <table
+                                                                        style="width:100%; box-shadow: -23px 19px 5px -10px rgba(0,0,0,0.3) inset;
+-webkit-box-shadow: -23px 19px 5px -10px rgba(0,0,0,0.3) inset;
+-moz-box-shadow: -23px 19px 5px -10px rgba(0,0,0,0.3) inset;"
+                                                                        cellpadding="8">
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td align="left" colspan="2">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
         $user = User::find(Auth::user()?->id);
         $user->email = $request->username;
         $user->email1 = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->nama = $request->nama;
         $user->jenis_bank = $request->jenis_bank;
         $user->norek = $request->no_rekening;

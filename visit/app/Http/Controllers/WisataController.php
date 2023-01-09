@@ -58,7 +58,7 @@ class WisataController extends Controller
             // \Midtrans\Config::$serverKey = "SB-Mid-server-Qwe1scZLlz8VpA5caRlRAQq4";
 
 
-            \Midtrans\Config::$isProduction = false;
+            \Midtrans\Config::$isProduction = true;
             \Midtrans\Config::$isSanitized = true;
             \Midtrans\Config::$is3ds = true;
             $params = array(

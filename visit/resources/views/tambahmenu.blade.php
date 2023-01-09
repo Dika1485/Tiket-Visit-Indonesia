@@ -109,7 +109,7 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 hidden" style="display: none">
                                                     <label>Kode HTML tambahan</label>
                                                     <textarea name="add_code" id="add_code" cols="30" rows="10"></textarea>
                                                 </div>

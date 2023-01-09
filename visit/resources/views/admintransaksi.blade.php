@@ -83,7 +83,19 @@
                         <td>{{ $transaksi->nama }}</td>
                         <td>{{ $transaksi->schedule }}</td>
                         <td>{{ $transaksi->jumlah }}</td>
-                        <td>{{ $transaksi->status }}</td>
+                        <td>
+                            @if ($transaksi->status == 'settlement')
+                                {{ 'Sukses' }}
+                            @endif
+
+                            @if ($transaksi->status == 'pending')
+                                {{ 'Pending' . ' ' }}
+                                <a href="{{ $transaksi->pdf_url }}" target="_blank">( Detail Tagihan )</a>
+                            @endif
+                            @if ($transaksi->status != 'settlement' && $transaksi->status != 'pending')
+                                {{ 'Cancel or Error' }}
+                            @endif
+                        </td>
                         <td>{{ $transaksi->total }}</td>
                         <td>{{ $transaksi->midtrans_id }}</td>
                         <td>{{ $transaksi->payment_code }}</td>
@@ -107,6 +119,9 @@
 <script>
     $(document).ready(function() {
         $('#daftar').DataTable({
+            scrollX: true,
+            scrollCollapse: false,
+            paging: true,
             order: [
                 [8, 'desc']
             ],

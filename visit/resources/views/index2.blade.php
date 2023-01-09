@@ -137,7 +137,7 @@
                         <div class="cards-wrapper">
                             @forelse ($wisatas as $wisata)
                                 <div class="card">
-                                    <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
+                                    <img src="images/{{ $wisata->thumbnail }}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $wisata->nama }}</h5>
                                         <p class="card-text">{{ strip_tags(Str::limit($wisata->desc, 100)) }}</p>
@@ -154,7 +154,7 @@
                         <div class="cards-wrapper">
                             @forelse ($makanans as $makanan)
                                 <div class="card">
-                                    <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
+                                    <img src="images/{{ $makanan->thumbnail }}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $makanan->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($makanan->desc, 100) }}</p>
@@ -170,7 +170,7 @@
                         <div class="cards-wrapper">
                             @forelse ($produks as $produk)
                                 <div class="card">
-                                    <img src="img/goa-lawa.jpg" class="card-img-top" alt="...">
+                                    <img src="images/{{ $produk->thumbnail }}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $produk->nama }}</h5>
                                         <p class="card-text">{{ Str::limit($produk->desc, 100) }}</p>
